@@ -1,0 +1,13 @@
+{
+    "name": "goticket/sistema-ingressos",
+    "description": "Sistema de venda e gerenciamento de ingressos com padrões GoF",
+    "type": "project",
+    "require": {
+        "php": ">=8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
