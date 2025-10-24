@@ -76,15 +76,15 @@ php -S localhost:8000
 7. [x] Criar Eventos - Organizadores podem criar novos eventos com detalhes completos (nome, data, horário, local, descrição, imagem)
 8. [x] Editar Eventos - Modificação de informações de eventos existentes
 9. [x] Excluir Eventos - Remoção de eventos com verificação de ingressos vendidos
-10.[x] Listar Eventos - Visualização de todos os eventos disponíveis com filtros e busca
-11.[x] Detalhes do Evento - Página detalhada com informações completas e opção de compra
-12.[x] Atualização Automática de Status - Eventos expirados são marcados automaticamente como inativos
-13.[x] Gerenciar Ingressos - Organizadores podem criar tipos de ingressos (Normal, VIP, Meia-Entrada) com preços diferenciados
-14.[x] Comprar Ingressos - Clientes podem adquirir ingressos com múltiplas formas de pagamento (Cartão, PIX)
-15.[x] Meus Ingressos - Visualização de todos os ingressos adquiridos organizados por evento
-16.[x] Download de Ingresso - Geração de PDF do ingresso com QR Code
-17.[x] Transferir Ingresso - Permite transferir ingressos para outros usuários cadastrados
-18.[x] Validar Ingresso - Organizadores podem validar ingressos através do código único e marcar como usados
+10. [x] Listar Eventos - Visualização de todos os eventos disponíveis com filtros e busca
+11. [x] Detalhes do Evento - Página detalhada com informações completas e opção de compra
+12. [x] Atualização Automática de Status - Eventos expirados são marcados automaticamente como inativos
+13. [x] Gerenciar Ingressos - Organizadores podem criar tipos de ingressos (Normal, VIP, Meia-Entrada) com preços diferenciados
+14. [x] Comprar Ingressos - Clientes podem adquirir ingressos com múltiplas formas de pagamento (Cartão, PIX)
+15. [x] Meus Ingressos - Visualização de todos os ingressos adquiridos organizados por evento
+16. [x] Download de Ingresso - Geração de PDF do ingresso com QR Code
+17. [x] Transferir Ingresso - Permite transferir ingressos para outros usuários cadastrados
+18. [x] Validar Ingresso - Organizadores podem validar ingressos através do código único e marcar como usados
 19. [x] Diferenciação de categorias de usuários, oferecendo opções gratuitas e pagas (Normal/Gold).
 20. [x] Sistema permite personalização do design com base em esquemas de cores (Claro/Escuro).
 
