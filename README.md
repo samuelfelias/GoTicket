@@ -3,12 +3,10 @@
 
 ## Descrição
 
-<!-- O GoTicket é um sistema de venda de ingressos digitais criado para tornar o processo de compra e venda mais rápido, seguro e acessível. Sua finalidade é eliminar problemas comuns como lentidão, fraudes, taxas ocultas e dificuldades de pagamento, oferecendo uma experiência transparente e confiável tanto para usuários quanto para organizadores de eventos. Entre suas principais funcionalidades, destacam-se a autenticação segura dos ingressos, fila virtual inteligente para evitar travamentos, opções de parcelamento, painel intuitivo para organizadores e suporte técnico eficiente. -->
-```
+ O GoTicket é um sistema de venda de ingressos digitais criado para tornar o processo de compra e venda mais rápido, seguro e acessível. Sua finalidade é eliminar problemas comuns como lentidão, fraudes, taxas ocultas e dificuldades de pagamento, oferecendo uma experiência transparente e confiável tanto para usuários quanto para organizadores de eventos. Entre suas principais funcionalidades, destacam-se a autenticação segura dos ingressos, fila virtual inteligente para evitar travamentos, opções de parcelamento, painel intuitivo para organizadores e suporte técnico eficiente. 
+
 ## Integrantes
 
-<!-- Liste todos os integrantes do grupo no formato Nome - Matrícula -->
-```
 -   Enzo Paolucci: 12303224
 -   Samuel Elias: 22301470 
 -   Silas Deslandes: 12300730
