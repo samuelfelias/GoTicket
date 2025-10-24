@@ -85,8 +85,8 @@ php -S localhost:8000
 16.[x] Download de Ingresso - Geração de PDF do ingresso com QR Code
 17.[x] Transferir Ingresso - Permite transferir ingressos para outros usuários cadastrados
 18.[x] Validar Ingresso - Organizadores podem validar ingressos através do código único e marcar como usados
-19.[x] Painel Administrativo - Dashboard com estatísticas gerais (total de usuários, eventos, ingressos vendidos)
-20.[x] Gerenciar Usuários (Admin) - Administradores podem visualizar, editar e gerenciar todos os usuários do sistema
+19. [x] Diferenciação de categorias de usuários, oferecendo opções gratuitas e pagas (Normal/Gold).
+20. [x] Sistema permite personalização do design com base em esquemas de cores (Claro/Escuro).
 
 ------------------------------------------------------------------------
 
