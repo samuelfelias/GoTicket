@@ -172,7 +172,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monitoramento de Vendas - GoTicket</title>
+    <title data-i18n="h.sales_monitor">Monitoramento de Vendas - GoTicket</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -290,20 +290,20 @@ try {
             
             <div class="filter-container">
                 <div>
-                    <label for="periodo">Período:</label>
+                    <label for="periodo" data-i18n="label.period">Período:</label>
                     <select id="periodo" name="periodo" onchange="aplicarFiltros()">
-                        <option value="todos" <?php echo $periodo == 'todos' ? 'selected' : ''; ?>>Todos</option>
-                        <option value="hoje" <?php echo $periodo == 'hoje' ? 'selected' : ''; ?>>Hoje</option>
-                        <option value="semana" <?php echo $periodo == 'semana' ? 'selected' : ''; ?>>Últimos 7 dias</option>
-                        <option value="mes" <?php echo $periodo == 'mes' ? 'selected' : ''; ?>>Últimos 30 dias</option>
-                        <option value="ano" <?php echo $periodo == 'ano' ? 'selected' : ''; ?>>Último ano</option>
+                        <option value="todos" <?php echo $periodo == 'todos' ? 'selected' : ''; ?> data-i18n="option.all">Todos</option>
+                        <option value="hoje" <?php echo $periodo == 'hoje' ? 'selected' : ''; ?> data-i18n="option.today">Hoje</option>
+                        <option value="semana" <?php echo $periodo == 'semana' ? 'selected' : ''; ?> data-i18n="option.last_7_days">Últimos 7 dias</option>
+                        <option value="mes" <?php echo $periodo == 'mes' ? 'selected' : ''; ?> data-i18n="option.last_30_days">Últimos 30 dias</option>
+                        <option value="ano" <?php echo $periodo == 'ano' ? 'selected' : ''; ?> data-i18n="option.last_year">Último ano</option>
                     </select>
                 </div>
                 
                 <div>
-                    <label for="evento">Evento:</label>
+                    <label for="evento" data-i18n="label.event">Evento:</label>
                     <select id="evento" name="evento" onchange="aplicarFiltros()">
-                        <option value="0">Todos os eventos</option>
+                        <option value="0" data-i18n="option.all_events">Todos os eventos</option>
                         <?php foreach ($eventos as $evento): ?>
                             <option value="<?php echo $evento['id_evento']; ?>" <?php echo $id_evento == $evento['id_evento'] ? 'selected' : ''; ?>>
                                 <?php echo htmlspecialchars($evento['nome']); ?>
@@ -315,38 +315,38 @@ try {
             
             <div class="dashboard-container">
                 <div class="dashboard-card">
-                    <p class="card-title">Total de Ingressos Vendidos</p>
+                    <p class="card-title" data-i18n="h.total_tickets_sold">Total de Ingressos Vendidos</p>
                     <p class="card-value"><?php echo number_format($total_ingressos, 0, ',', '.'); ?></p>
                 </div>
                 
                 <div class="dashboard-card">
-                    <p class="card-title">Valor Total de Vendas</p>
+                    <p class="card-title" data-i18n="h.total_sales_value">Valor Total de Vendas</p>
                     <p class="card-value">R$ <?php echo number_format($total_valor, 2, ',', '.'); ?></p>
                 </div>
                 
                 <div class="dashboard-card">
-                    <p class="card-title">Eventos Ativos</p>
+                    <p class="card-title" data-i18n="h.active_events">Eventos Ativos</p>
                     <p class="card-value"><?php echo count($eventos); ?></p>
                 </div>
             </div>
             
             <div class="chart-container">
-                <h3>Evolução de Vendas</h3>
+                <h3 data-i18n="h.sales_evolution">Evolução de Vendas</h3>
                 <?php if (!empty($vendas_por_data)): ?>
                     <canvas id="vendasChart"></canvas>
                 <?php else: ?>
-                    <p>Nenhuma venda registrada no período selecionado.</p>
+                    <p data-i18n="msg.no_sales_in_period">Nenhuma venda registrada no período selecionado.</p>
                 <?php endif; ?>
             </div>
             
-            <h3>Resumo de Vendas por Evento</h3>
+            <h3 data-i18n="h.sales_summary_by_event">Resumo de Vendas por Evento</h3>
             <?php if (!empty($vendas_por_evento)): ?>
             <table>
                 <thead>
                     <tr>
-                        <th>Evento</th>
-                        <th>Ingressos Vendidos</th>
-                        <th>Valor Total</th>
+                        <th data-i18n="th.event">Evento</th>
+                        <th data-i18n="th.tickets_sold">Ingressos Vendidos</th>
+                        <th data-i18n="th.total_value">Valor Total</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -360,7 +360,7 @@ try {
                 </tbody>
             </table>
             <?php else: ?>
-                <p>Nenhuma venda registrada no período selecionado.</p>
+                <p data-i18n="msg.no_sales_in_period">Nenhuma venda registrada no período selecionado.</p>
             <?php endif; ?>
             
             <?php endif; ?>

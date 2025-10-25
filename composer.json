@@ -3,7 +3,8 @@
     "description": "Sistema de venda e gerenciamento de ingressos com padrões GoF",
     "type": "project",
     "require": {
-        "php": ">=8.1"
+        "php": ">=8.1",
+        "tecnickcom/tcpdf": "^6.6"
     },
     "autoload": {
         "psr-4": {

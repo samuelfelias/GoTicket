@@ -199,8 +199,8 @@ foreach ($ingressos_data as $row) {
         <div class="pedidos-container">
             <?php if (empty($eventos)): ?>
                 <div class="sem-ingressos">
-                    <h3>Você ainda não possui ingressos</h3>
-                    <p>Explore os eventos disponíveis e adquira seus ingressos!</p>
+                    <h3 data-i18n="msg.no_tickets_yet">Você ainda não possui ingressos</h3>
+                    <p data-i18n="msg.explore_events">Explore os eventos disponíveis e adquira seus ingressos!</p>
                     <a href="eventos/listar_eventos.php" class="btn" data-i18n="nav.events">Eventos</a>
                 </div>
             <?php else: ?>
@@ -221,23 +221,23 @@ foreach ($ingressos_data as $row) {
                             <div class="evento-info" style="margin-bottom: 20px;">
                                 <div class="ingresso-info">
                                     <div>
-                                        <div class="info-label">Data:</div>
+                                        <div class="info-label" data-i18n="label.date">Data:</div>
                                         <?php echo date('d/m/Y', strtotime($evento['data'])); ?>
                                     </div>
                                     
                                     <div>
-                                        <div class="info-label">Horário:</div>
+                                        <div class="info-label" data-i18n="label.time">Horário:</div>
                                         <?php echo $evento['horario_inicio']; ?>
                                     </div>
                                     
                                     <div>
-                                        <div class="info-label">Local:</div>
+                                        <div class="info-label" data-i18n="label.location">Local:</div>
                                         <?php echo htmlspecialchars($evento['local']); ?>
                                     </div>
                                 </div>
                             </div>
                             
-                            <h4>Seus Ingressos</h4>
+                            <h4 data-i18n="h.your_tickets">Seus Ingressos</h4>
                             
                             <?php foreach ($evento['ingressos'] as $ingresso): ?>
                                 <div class="ingresso-item">
@@ -251,19 +251,19 @@ foreach ($ingressos_data as $row) {
                                     
                                     <div class="ingresso-info">
                                         <div>
-                                            <div class="info-label">Código:</div>
+                                            <div class="info-label" data-i18n="label.code">Código:</div>
                                             <?php echo htmlspecialchars($ingresso['codigo']); ?>
                                         </div>
                                         
                                         <div>
-                                            <div class="info-label">Valor:</div>
+                                            <div class="info-label" data-i18n="label.value">Valor:</div>
                                             R$ <?php echo number_format($ingresso['preco'], 2, ',', '.'); ?>
                                         </div>
                                         
                                         <?php if ($ingresso['status_ingresso_usuario'] == 'ATIVO'): ?>
                                         <div>
                                             <a href="transferir_ingresso.php?id=<?php echo $ingresso['ingresso_usuario_id']; ?>" class="btn btn-sm btn-primary">
-                                                <i class="fas fa-exchange-alt"></i> Transferir
+                                                <i class="fas fa-exchange-alt"></i> <span data-i18n="btn.transfer">Transferir</span>
                                             </a>
                                         </div>
                                         <?php endif; ?>
@@ -271,26 +271,26 @@ foreach ($ingressos_data as $row) {
                                     
                                     <div class="ingresso-info">
                                         <div>
-                                            <div class="info-label">Data de Aquisição:</div>
+                                            <div class="info-label" data-i18n="label.purchase_date">Data de Aquisição:</div>
                                             <?php echo date('d/m/Y H:i', strtotime($ingresso['data_aquisicao'])); ?>
                                         </div>
                                         
                                         <?php if ($ingresso['status_ingresso_usuario'] == 'USADO' && !empty($ingresso['data_uso'])): ?>
                                         <div>
-                                            <div class="info-label">Data de Uso:</div>
+                                            <div class="info-label" data-i18n="label.usage_date">Data de Uso:</div>
                                             <?php echo date('d/m/Y H:i', strtotime($ingresso['data_uso'])); ?>
                                         </div>
                                         <?php endif; ?>
                                     </div>
                                     
                                     <div style="margin-top: 10px;">
-                                        <a href="download_ingresso.php?id=<?php echo $ingresso['ingresso_usuario_id']; ?>" class="btn btn-detalhes">Baixar Ingresso</a>
+                                        <a href="download_ingresso.php?id=<?php echo $ingresso['ingresso_usuario_id']; ?>" class="btn btn-detalhes" data-i18n="btn.download">Baixar Ingresso</a>
                                     </div>
                                 </div>
                             <?php endforeach; ?>
                             
                             <div style="margin-top: 15px;">
-                                <a href="eventos/detalhes_evento.php?id=<?php echo $evento['id_evento']; ?>" class="btn">Ver Detalhes do Evento</a>
+                                <a href="eventos/detalhes_evento.php?id=<?php echo $evento['id_evento']; ?>" class="btn" data-i18n="btn.view_details">Ver Detalhes do Evento</a>
                             </div>
                         </div>
                     </div>

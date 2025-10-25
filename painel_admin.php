@@ -174,57 +174,57 @@ $usuarios_recentes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         ?>
         
         <div class="welcome-message">
-            <p>Bem-vindo(a), <?php echo htmlspecialchars($_SESSION['usuario_nome']); ?>!</p>
+            <p data-i18n="msg.welcome_prefix">Bem-vindo(a), <?php echo htmlspecialchars($_SESSION['usuario_nome']); ?>!</p>
         </div>
         
         <div class="dashboard">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Total de Usuários</h3>
+                    <h3 class="card-title" data-i18n="h.total_users">Total de Usuários</h3>
                 </div>
                 <div class="card-value"><?php echo $total_usuarios; ?></div>
-                <a href="admin/gerenciar_usuarios.php" class="btn" style="margin-top: 10px;">Ver Todos</a>
+                <a href="admin/gerenciar_usuarios.php" class="btn" style="margin-top: 10px;" data-i18n="btn.see_all">Ver Todos</a>
             </div>
             
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Total de Eventos</h3>
+                    <h3 class="card-title" data-i18n="h.total_events">Total de Eventos</h3>
                 </div>
                 <div class="card-value"><?php echo $total_eventos; ?></div>
-                <a href="eventos/gerenciar_eventos.php" class="btn" style="margin-top: 10px;">Ver Todos</a>
+                <a href="eventos/gerenciar_eventos.php" class="btn" style="margin-top: 10px;" data-i18n="btn.see_all">Ver Todos</a>
             </div>
             
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Ingressos Vendidos</h3>
+                    <h3 class="card-title" data-i18n="h.tickets_sold">Ingressos Vendidos</h3>
                 </div>
                 <div class="card-value"><?php echo $total_ingressos_vendidos; ?></div>
-                <a href="admin/relatorios.php" class="btn" style="margin-top: 10px;">Ver Relatórios</a>
+                <a href="admin/relatorios.php" class="btn" style="margin-top: 10px;" data-i18n="btn.see_reports">Ver Relatórios</a>
             </div>
         </div>
         
         <div class="admin-menu">
             <div class="admin-menu-item">
                 <a href="admin/gerenciar_usuarios.php">
-                    <span>Gerenciar Usuários</span>
+                    <span data-i18n="nav.users">Gerenciar Usuários</span>
                 </a>
             </div>
             
             <div class="admin-menu-item">
                 <a href="eventos/gerenciar_eventos.php">
-                    <span>Gerenciar Eventos</span>
+                    <span data-i18n="nav.events">Gerenciar Eventos</span>
                 </a>
             </div>
             
             <div class="admin-menu-item">
                 <a href="admin/relatorios.php">
-                    <span>Relatórios</span>
+                    <span data-i18n="nav.reports">Relatórios</span>
                 </a>
             </div>
             
             <div class="admin-menu-item">
                 <a href="admin/configuracoes.php">
-                    <span>Configurações</span>
+                    <span data-i18n="nav.settings">Configurações</span>
                 </a>
             </div>
         </div>
@@ -233,19 +233,19 @@ $usuarios_recentes = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Eventos Recentes</h3>
+                        <h3 class="card-title" data-i18n="h.recent_events">Eventos Recentes</h3>
                     </div>
                     <div class="recent-items">
                         <?php if (empty($eventos_recentes)): ?>
-                            <p>Nenhum evento cadastrado.</p>
+                            <p data-i18n="msg.no_events_registered">Nenhum evento cadastrado.</p>
                         <?php else: ?>
                             <?php foreach ($eventos_recentes as $evento): ?>
                                 <div class="recent-item">
                                     <div style="display: flex; justify-content: space-between; align-items: center;">
                                         <div>
                                             <strong><?php echo htmlspecialchars($evento['nome']); ?></strong>
-                                            <div>Organizador: <?php echo htmlspecialchars($evento['organizador_nome']); ?></div>
-                                            <div>Data: <?php echo date('d/m/Y', strtotime($evento['data'])); ?></div>
+                                            <div data-i18n="label.organizer">Organizador: <?php echo htmlspecialchars($evento['organizador_nome']); ?></div>
+                                            <div data-i18n="label.date">Data: <?php echo date('d/m/Y', strtotime($evento['data'])); ?></div>
                                         </div>
                                         <span class="status-badge status-<?php echo strtolower($evento['status']); ?>">
                                             <?php echo $evento['status']; ?>
@@ -261,19 +261,19 @@ $usuarios_recentes = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Usuários Recentes</h3>
+                        <h3 class="card-title" data-i18n="h.recent_users">Usuários Recentes</h3>
                     </div>
                     <div class="recent-items">
                         <?php if (empty($usuarios_recentes)): ?>
-                            <p>Nenhum usuário cadastrado.</p>
+                            <p data-i18n="msg.no_users_registered">Nenhum usuário cadastrado.</p>
                         <?php else: ?>
                             <?php foreach ($usuarios_recentes as $usuario): ?>
                                 <div class="recent-item">
                                     <div style="display: flex; justify-content: space-between; align-items: center;">
                                         <div>
                                             <strong><?php echo htmlspecialchars($usuario['nome']); ?></strong>
-                                            <div>Email: <?php echo htmlspecialchars($usuario['email']); ?></div>
-                                            <div>Tipo: <?php echo $usuario['tipo']; ?></div>
+                                            <div data-i18n="label.email">Email: <?php echo htmlspecialchars($usuario['email']); ?></div>
+                                            <div data-i18n="label.type">Tipo: <?php echo $usuario['tipo']; ?></div>
                                         </div>
                                         <span class="status-badge status-ativo">
                                             ATIVO

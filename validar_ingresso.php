@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['codigo'])) {
         // Buscar informações do ingresso pelo código
         $stmt = $conexao->prepare("SELECT iu.id, iu.codigo, iu.status, iu.data_aquisicao, iu.id_evento,
                                i.tipo, i.preco, 
-                               e.nome as evento_nome, e.data, e.horario, e.local, e.status as status_evento,
+                               e.nome as evento_nome, e.data, e.horario_inicio, e.local, e.status as status_evento,
                                u.nome as nome_usuario, u.email as email_usuario
                                FROM IngressoUsuario iu
                                JOIN Ingresso i ON iu.ingresso_id = i.id_ingresso
@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['marcar_usado']) && iss
             $codigo = $_POST['codigo'];
             $stmt = $conexao->prepare("SELECT iu.id, iu.codigo, iu.status, iu.data_aquisicao, iu.data_uso, iu.id_evento,
                                    i.tipo, i.preco, 
-                                   e.nome as evento_nome, e.data, e.horario, e.local, e.status as status_evento,
+                                   e.nome as evento_nome, e.data, e.horario_inicio, e.local, e.status as status_evento,
                                    u.nome as nome_usuario, u.email as email_usuario
                                    FROM IngressoUsuario iu
                                    JOIN Ingresso i ON iu.ingresso_id = i.id_ingresso
@@ -297,7 +297,7 @@ include 'includes/header.php';
                     
                     <div class="info-row">
                         <div class="info-label" data-i18n="label.time">Horário:</div>
-                        <div><?php echo $ingresso['horario']; ?></div>
+                        <div><?php echo $ingresso['horario_inicio']; ?></div>
                     </div>
                     
                     <div class="info-row">

@@ -146,27 +146,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirmar_exclusao']))
 
     <div class="container">
         <div class="form-container" style="max-width: 700px;">
-            <h2 class="form-title">Excluir Evento</h2>
+            <h2 class="form-title" data-i18n="h.delete_event">Excluir Evento</h2>
             
             <div class="confirmation-box">
-                <h3>Atenção!</h3>
-                <p>Você está prestes a excluir o evento <strong><?php echo htmlspecialchars($evento['nome']); ?></strong>.</p>
-                <p>Esta ação não poderá ser desfeita. Todos os ingressos não vendidos associados a este evento também serão excluídos.</p>
+                <h3 data-i18n="h.warning">Atenção!</h3>
+                <p data-i18n="msg.delete_warning">Você está prestes a excluir o evento <strong><?php echo htmlspecialchars($evento['nome']); ?></strong>.</p>
+                <p data-i18n="msg.delete_irreversible">Esta ação não poderá ser desfeita. Todos os ingressos não vendidos associados a este evento também serão excluídos.</p>
             </div>
             
             <div class="event-details">
-                <h4>Detalhes do Evento:</h4>
-                <p><strong>Nome:</strong> <?php echo htmlspecialchars($evento['nome']); ?></p>
-                <p><strong>Data:</strong> <?php echo date('d/m/Y', strtotime($evento['data'])); ?></p>
-                <p><strong>Horário:</strong> <?php echo $evento['horario']; ?></p>
-                <p><strong>Local:</strong> <?php echo htmlspecialchars($evento['local']); ?></p>
-                <p><strong>Status:</strong> <?php echo $evento['status']; ?></p>
+                <h4 data-i18n="h.event_details">Detalhes do Evento:</h4>
+                <p><strong data-i18n="label.name">Nome:</strong> <?php echo htmlspecialchars($evento['nome']); ?></p>
+                <p><strong data-i18n="label.date">Data:</strong> <?php echo date('d/m/Y', strtotime($evento['data'])); ?></p>
+                <p><strong data-i18n="label.time">Horário:</strong> <?php echo $evento['horario_inicio']; ?></p>
+                <p><strong data-i18n="label.location">Local:</strong> <?php echo htmlspecialchars($evento['local']); ?></p>
+                <p><strong data-i18n="label.status">Status:</strong> <?php echo $evento['status']; ?></p>
             </div>
             
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . '?id=' . $id_evento; ?>" method="post">
                 <div class="form-actions">
-                    <button type="submit" name="confirmar_exclusao" value="1" class="btn btn-danger">Confirmar Exclusão</button>
-                    <a href="gerenciar_eventos.php" class="btn btn-secondary">Cancelar</a>
+                    <button type="submit" name="confirmar_exclusao" value="1" class="btn btn-danger" data-i18n="btn.confirm_deletion">Confirmar Exclusão</button>
+                    <a href="gerenciar_eventos.php" class="btn btn-secondary" data-i18n="btn.cancel">Cancelar</a>
                 </div>
             </form>
         </div>

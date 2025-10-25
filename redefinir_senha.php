@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redefinir Senha - GoTicket</title>
+    <title data-i18n="h.reset_password">Redefinir Senha - GoTicket</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -11,7 +11,7 @@
     <?php include 'includes/header_simples.php'; ?>
     <div class="container">
         <div class="form-container">
-            <h2 class="form-title">Redefinir Senha</h2>
+            <h2 class="form-title" data-i18n="h.reset_password">Redefinir Senha</h2>
             
             <?php
             // Iniciar sessão
@@ -130,7 +130,7 @@
                 <input type="hidden" name="id_usuario" value="<?php echo $redefinicao['id_usuario']; ?>">
                 
                 <div class="form-group">
-                    <label for="senha">Nova Senha:</label>
+                    <label for="senha" data-i18n="label.new_password">Nova Senha:</label>
                     <div class="input-group">
                         <input type="password" id="senha" name="senha" class="form-control" required minlength="6">
                         <button type="button" class="btn btn-outline-secondary toggle-password" data-target="senha">
@@ -140,7 +140,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="confirmar_senha">Confirmar Nova Senha:</label>
+                    <label for="confirmar_senha" data-i18n="label.confirm_new_password">Confirmar Nova Senha:</label>
                     <div class="input-group">
                         <input type="password" id="confirmar_senha" name="confirmar_senha" class="form-control" required minlength="6">
                         <button type="button" class="btn btn-outline-secondary toggle-password" data-target="confirmar_senha">
@@ -149,10 +149,10 @@
                     </div>
                 </div>
                 
-                <button type="submit" class="btn btn-block">Redefinir Senha</button>
+                <button type="submit" class="btn btn-block" data-i18n="btn.reset_password">Redefinir Senha</button>
                 
                 <div class="form-footer">
-                    <a href="login.php">Voltar para o login</a>
+                    <a href="login.php" data-i18n="btn.back_to_login">Voltar para o login</a>
                 </div>
             </form>
         </div>

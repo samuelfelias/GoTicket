@@ -83,7 +83,7 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciar Usuários - GoTicket</title>
+    <title data-i18n="h.manage_users">Gerenciar Usuários - GoTicket</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
         .filtros {
@@ -170,7 +170,7 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php include '../includes/header.php'; ?>
 
     <div class="container">
-        <h2>Gerenciar Usuários</h2>
+        <h2 data-i18n="h.manage_users">Gerenciar Usuários</h2>
         
         <?php
         // Verificar se existe mensagem
@@ -186,51 +186,51 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="filtros">
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="get">
                 <div class="form-group">
-                    <label for="tipo">Tipo:</label>
+                    <label for="tipo" data-i18n="label.type">Tipo:</label>
                     <select id="tipo" name="tipo" class="form-control">
-                        <option value="">Todos</option>
-                        <option value="CLIENTE" <?php echo ($filtro_tipo == 'CLIENTE') ? 'selected' : ''; ?>>Cliente</option>
-                        <option value="ORGANIZADOR" <?php echo ($filtro_tipo == 'ORGANIZADOR') ? 'selected' : ''; ?>>Organizador</option>
-                        <option value="ADMIN" <?php echo ($filtro_tipo == 'ADMIN') ? 'selected' : ''; ?>>Administrador</option>
+                        <option value="" data-i18n="option.all">Todos</option>
+                        <option value="CLIENTE" <?php echo ($filtro_tipo == 'CLIENTE') ? 'selected' : ''; ?> data-i18n="user.client">Cliente</option>
+                        <option value="ORGANIZADOR" <?php echo ($filtro_tipo == 'ORGANIZADOR') ? 'selected' : ''; ?> data-i18n="user.organizer">Organizador</option>
+                        <option value="ADMIN" <?php echo ($filtro_tipo == 'ADMIN') ? 'selected' : ''; ?> data-i18n="user.admin">Administrador</option>
                     </select>
                 </div>
                 
                 <div class="form-group">
-                    <label for="status">Status:</label>
+                    <label for="status" data-i18n="label.status">Status:</label>
                     <select id="status" name="status" class="form-control">
-                        <option value="">Todos</option>
-                        <option value="ATIVO" <?php echo ($filtro_status == 'ATIVO') ? 'selected' : ''; ?>>Ativo</option>
-                        <option value="INATIVO" <?php echo ($filtro_status == 'INATIVO') ? 'selected' : ''; ?>>Inativo</option>
+                        <option value="" data-i18n="option.all">Todos</option>
+                        <option value="ATIVO" <?php echo ($filtro_status == 'ATIVO') ? 'selected' : ''; ?> data-i18n="status.active">Ativo</option>
+                        <option value="INATIVO" <?php echo ($filtro_status == 'INATIVO') ? 'selected' : ''; ?> data-i18n="status.inactive">Inativo</option>
                     </select>
                 </div>
                 
                 <div class="form-group">
-                    <label for="busca">Buscar:</label>
-                    <input type="text" id="busca" name="busca" class="form-control" value="<?php echo htmlspecialchars($filtro_busca); ?>" placeholder="Nome, email ou CPF">
+                    <label for="busca" data-i18n="label.search">Buscar:</label>
+                    <input type="text" id="busca" name="busca" class="form-control" value="<?php echo htmlspecialchars($filtro_busca); ?>" data-i18n-placeholder="ph.search_name_email_cpf" placeholder="Nome, email ou CPF">
                 </div>
                 
-                <button type="submit" class="btn">Filtrar</button>
-                <a href="gerenciar_usuarios.php" class="btn" style="background-color: #6c757d;">Limpar</a>
+                <button type="submit" class="btn" data-i18n="btn.filter">Filtrar</button>
+                <a href="gerenciar_usuarios.php" class="btn" style="background-color: #6c757d;" data-i18n="btn.clear">Limpar</a>
             </form>
         </div>
         
         <table class="tabela-usuarios">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>CPF</th>
-                    <th>Tipo</th>
-                    <th>Status</th>
-                    <th>Data de Cadastro</th>
-                    <th>Ações</th>
+                    <th data-i18n="th.id">ID</th>
+                    <th data-i18n="th.name">Nome</th>
+                    <th data-i18n="th.email">Email</th>
+                    <th data-i18n="th.cpf">CPF</th>
+                    <th data-i18n="th.type">Tipo</th>
+                    <th data-i18n="th.status">Status</th>
+                    <th data-i18n="th.registration_date">Data de Cadastro</th>
+                    <th data-i18n="th.actions">Ações</th>
                 </tr>
             </thead>
             <tbody>
                 <?php if (empty($usuarios)): ?>
                     <tr>
-                        <td colspan="8" style="text-align: center;">Nenhum usuário encontrado.</td>
+                        <td colspan="8" style="text-align: center;" data-i18n="msg.no_users_found">Nenhum usuário encontrado.</td>
                     </tr>
                 <?php else: ?>
                     <?php foreach ($usuarios as $usuario): ?>
@@ -243,13 +243,13 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <?php 
                                 switch ($usuario['tipo']) {
                                     case 'CLIENTE':
-                                        echo '<span class="badge badge-primary">Cliente</span>';
+                                        echo '<span class="badge badge-primary" data-i18n="user.client">Cliente</span>';
                                         break;
                                     case 'ORGANIZADOR':
-                                        echo '<span class="badge badge-warning">Organizador</span>';
+                                        echo '<span class="badge badge-warning" data-i18n="user.organizer">Organizador</span>';
                                         break;
                                     case 'ADMIN':
-                                        echo '<span class="badge badge-secondary">Administrador</span>';
+                                        echo '<span class="badge badge-secondary" data-i18n="user.admin">Administrador</span>';
                                         break;
                                     default:
                                         echo $usuario['tipo'];
@@ -258,21 +258,21 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </td>
                             <td>
                                 <?php if ($usuario['status'] == 'ATIVO'): ?>
-                                    <span class="badge badge-success">Ativo</span>
+                                    <span class="badge badge-success" data-i18n="status.active">Ativo</span>
                                 <?php else: ?>
-                                    <span class="badge badge-danger">Inativo</span>
+                                    <span class="badge badge-danger" data-i18n="status.inactive">Inativo</span>
                                 <?php endif; ?>
                             </td>
                             <td><?php echo date('d/m/Y H:i', strtotime($usuario['created_at'])); ?></td>
                             <td class="acoes">
                                 <?php if ($usuario['id_usuario'] != $_SESSION['usuario_id']): ?>
                                     <?php if ($usuario['status'] == 'ATIVO'): ?>
-                                        <a href="?acao=desativar&id=<?php echo $usuario['id_usuario']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja desativar este usuário?')">Desativar</a>
+                                        <a href="?acao=desativar&id=<?php echo $usuario['id_usuario']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja desativar este usuário?')" data-i18n="btn.deactivate">Desativar</a>
                                     <?php else: ?>
-                                        <a href="?acao=ativar&id=<?php echo $usuario['id_usuario']; ?>" class="btn btn-sm btn-success">Ativar</a>
+                                        <a href="?acao=ativar&id=<?php echo $usuario['id_usuario']; ?>" class="btn btn-sm btn-success" data-i18n="btn.activate">Ativar</a>
                                     <?php endif; ?>
                                 <?php else: ?>
-                                    <span class="badge badge-secondary">Usuário atual</span>
+                                    <span class="badge badge-secondary" data-i18n="msg.current_user">Usuário atual</span>
                                 <?php endif; ?>
                             </td>
                         </tr>

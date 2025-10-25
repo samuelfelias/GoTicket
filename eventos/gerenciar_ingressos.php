@@ -205,12 +205,12 @@ $ingressos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php include '../includes/header.php'; ?>
 
     <div class="container">
-        <h2>Gerenciar Ingressos - <?php echo htmlspecialchars($evento['nome']); ?></h2>
+        <h2 data-i18n="h.manage_tickets">Gerenciar Ingressos - <?php echo htmlspecialchars($evento['nome']); ?></h2>
         <p>
-            <strong>Data:</strong> <?php echo date('d/m/Y', strtotime($evento['data'])); ?> | 
-            <strong>Horário:</strong> <?php echo $evento['horario_inicio']; ?> | 
-            <strong>Local:</strong> <?php echo htmlspecialchars($evento['local']); ?> | 
-            <strong>Status:</strong> <?php echo $evento['status']; ?>
+            <strong data-i18n="label.date">Data:</strong> <?php echo date('d/m/Y', strtotime($evento['data'])); ?> | 
+            <strong data-i18n="label.time">Horário:</strong> <?php echo $evento['horario_inicio']; ?> | 
+            <strong data-i18n="label.location">Local:</strong> <?php echo htmlspecialchars($evento['local']); ?> | 
+            <strong data-i18n="label.status">Status:</strong> <?php echo $evento['status']; ?>
         </p>
         
         <?php
@@ -227,27 +227,27 @@ $ingressos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="two-columns">
             <div class="column">
                 <div class="form-container">
-                    <h3 class="form-title">Adicionar Ingressos</h3>
+                    <h3 class="form-title" data-i18n="h.add_tickets">Adicionar Ingressos</h3>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . '?id=' . $id_evento; ?>" method="post">
                         <div class="form-group">
-                            <label for="tipo">Tipo de Ingresso:</label>
+                            <label for="tipo" data-i18n="label.ticket_type">Tipo de Ingresso:</label>
                             <input type="text" id="tipo" name="tipo" class="form-control" required placeholder="Ex: VIP, Meia-entrada, Inteira">
                         </div>
                         
                         <div class="form-group">
-                            <label for="preco">Preço (R$):</label>
+                            <label for="preco" data-i18n="label.price">Preço (R$):</label>
                             <input type="text" id="preco" name="preco" class="form-control" required placeholder="Ex: 50,00">
                         </div>
                         
                         <div class="form-group">
-                            <label for="quantidade">Quantidade:</label>
+                            <label for="quantidade" data-i18n="label.quantity">Quantidade:</label>
                             <input type="number" id="quantidade" name="quantidade" class="form-control" required min="1" value="1">
                         </div>
                         
 
                         
                         <div class="form-actions">
-                            <button type="submit" name="adicionar_ingressos" class="btn">Adicionar Ingressos</button>
+                            <button type="submit" name="adicionar_ingressos" class="btn" data-i18n="btn.add_tickets">Adicionar Ingressos</button>
                         </div>
                     </form>
                 </div>
@@ -255,33 +255,33 @@ $ingressos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             
             <div class="column">
                 <div class="ingressos-container">
-                    <h3>Ingressos Disponíveis</h3>
+                    <h3 data-i18n="h.available_tickets">Ingressos Disponíveis</h3>
                     
                     <?php if (empty($ingressos)): ?>
-                        <p>Nenhum ingresso cadastrado para este evento.</p>
+                        <p data-i18n="msg.no_tickets_registered">Nenhum ingresso cadastrado para este evento.</p>
                     <?php else: ?>
                         <?php foreach ($ingressos as $ingresso): ?>
                             <div class="ingresso-card">
                                 <h4><?php echo htmlspecialchars($ingresso['tipo']); ?></h4>
-                                <p><strong>Preço:</strong> R$ <?php echo number_format($ingresso['preco'], 2, ',', '.'); ?></p>
+                                <p><strong data-i18n="label.price">Preço:</strong> R$ <?php echo number_format($ingresso['preco'], 2, ',', '.'); ?></p>
 
                                 
                                 <div class="ingresso-stats">
                                     <div class="stat-item stat-disponivel">
-                                        <strong>Disponíveis:</strong> <?php echo $ingresso['disponiveis']; ?>
+                                        <strong data-i18n="label.available">Disponíveis:</strong> <?php echo $ingresso['disponiveis']; ?>
                                     </div>
                                     <div class="stat-item stat-vendido">
-                                        <strong>Vendidos:</strong> <?php echo $ingresso['vendidos']; ?>
+                                        <strong data-i18n="label.sold">Vendidos:</strong> <?php echo $ingresso['vendidos']; ?>
                                     </div>
                                     <div class="stat-item stat-total">
-                                        <strong>Total:</strong> <?php echo $ingresso['total']; ?>
+                                        <strong data-i18n="label.total">Total:</strong> <?php echo $ingresso['total']; ?>
                                     </div>
                                 </div>
                                 
                                 <?php if ($ingresso['disponiveis'] > 0): ?>
                                     <form class="form-inline" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . '?id=' . $id_evento; ?>" method="post" onsubmit="return confirm('Tem certeza que deseja excluir todos os ingressos disponíveis do tipo <?php echo htmlspecialchars($ingresso['tipo']); ?>?');">
                                         <input type="hidden" name="excluir_tipo" value="<?php echo htmlspecialchars($ingresso['tipo']); ?>">
-                                        <button type="submit" class="btn">Excluir Disponíveis</button>
+                                        <button type="submit" class="btn" data-i18n="btn.delete_available">Excluir Disponíveis</button>
                                     </form>
                                 <?php endif; ?>
                             </div>
@@ -292,7 +292,7 @@ $ingressos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         
         <div class="form-actions" style="margin-top: 20px;">
-            <a href="gerenciar_eventos.php" class="btn" style="background-color: #6c757d;">Voltar para Eventos</a>
+            <a href="gerenciar_eventos.php" class="btn" style="background-color: #6c757d;" data-i18n="btn.back_to_events">Voltar para Eventos</a>
         </div>
     </div>
     <?php include '../includes/footer.php'; ?>

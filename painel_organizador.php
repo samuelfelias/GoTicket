@@ -31,27 +31,27 @@ if ($_SESSION['usuario_tipo'] != 'ORGANIZADOR') {
             <h2 class="panel-title" data-i18n="h.organizer_dashboard">Painel do Organizador</h2>
             
             <div class="welcome-message">
-                <p>Bem-vindo(a), <?php echo htmlspecialchars($_SESSION['usuario_nome']); ?>!</p>
+                <p data-i18n="msg.welcome_prefix">Bem-vindo(a), <?php echo htmlspecialchars($_SESSION['usuario_nome']); ?>!</p>
             </div>
             
             <div class="panel-content">
                 <div class="dashboard-menu">
                     <div class="dashboard-item">
-                        <h3>Meus Eventos</h3>
-                        <p>Gerencie seus eventos e ingressos.</p>
-                        <a href="eventos/gerenciar_eventos.php" class="btn">Gerenciar Eventos</a>
+                        <h3 data-i18n="h.my_events">Meus Eventos</h3>
+                        <p data-i18n="msg.manage_events_description">Gerencie seus eventos e ingressos.</p>
+                        <a href="eventos/gerenciar_eventos.php" class="btn" data-i18n="btn.manage_events">Gerenciar Eventos</a>
                     </div>
                     
                     <div class="dashboard-item">
-                        <h3>Monitoramento de Vendas</h3>
-                        <p>Acompanhe as vendas de ingressos e estatísticas dos seus eventos.</p>
-                        <a href="organizador/monitoramento_vendas.php" class="btn">Ver Relatório de Vendas</a>
+                        <h3 data-i18n="h.sales_monitor">Monitoramento de Vendas</h3>
+                        <p data-i18n="msg.sales_monitor_description">Acompanhe as vendas de ingressos e estatísticas dos seus eventos.</p>
+                        <a href="organizador/monitoramento_vendas.php" class="btn" data-i18n="btn.view_sales_report">Ver Relatório de Vendas</a>
                     </div>
                     
                     <div class="dashboard-item">
-                        <h3>Criar Novo Evento</h3>
-                        <p>Adicione um novo evento à plataforma.</p>
-                        <a href="eventos/criar_evento.php" class="btn">Criar Evento</a>
+                        <h3 data-i18n="h.create_event">Criar Novo Evento</h3>
+                        <p data-i18n="msg.create_event_description">Adicione um novo evento à plataforma.</p>
+                        <a href="eventos/criar_evento.php" class="btn" data-i18n="btn.create_event">Criar Evento</a>
                     </div>
                 </div>
                 

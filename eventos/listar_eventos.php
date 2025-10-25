@@ -276,8 +276,8 @@ $total_paginas = ceil($total_eventos / $eventos_por_pagina);
                                 }
 
                                 $hora_formatada = '';
-                                if (!empty($evento['horario'])) {
-                                    $ts_hora = strtotime($evento['horario']);
+                                if (!empty($evento['horario_inicio'])) {
+                                    $ts_hora = strtotime($evento['horario_inicio']);
                                     if ($ts_hora !== false) {
                                         $hora_formatada = date('H:i', $ts_hora);
                                     }

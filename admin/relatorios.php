@@ -64,7 +64,7 @@ $stats['eventos_recentes'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatórios - GoTicket</title>
+    <title data-i18n="h.reports">Relatórios - GoTicket</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
         .dashboard {
@@ -171,36 +171,36 @@ $stats['eventos_recentes'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php include '../includes/header.php'; ?>
 
     <div class="container">
-        <h1>Relatórios e Estatísticas</h1>
+        <h1 data-i18n="h.reports_and_statistics">Relatórios e Estatísticas</h1>
         
         <div class="dashboard">
             <div class="card">
-                <div class="card-title">Total de Usuários</div>
+                <div class="card-title" data-i18n="h.total_users">Total de Usuários</div>
                 <div class="card-value"><?php echo number_format($stats['total_usuarios']); ?></div>
-                <div class="card-subtitle">Cadastrados no sistema</div>
+                <div class="card-subtitle" data-i18n="msg.registered_in_system">Cadastrados no sistema</div>
             </div>
             
             <div class="card">
-                <div class="card-title">Total de Eventos</div>
+                <div class="card-title" data-i18n="h.total_events">Total de Eventos</div>
                 <div class="card-value"><?php echo number_format($stats['total_eventos']); ?></div>
-                <div class="card-subtitle">Eventos criados</div>
+                <div class="card-subtitle" data-i18n="msg.events_created">Eventos criados</div>
             </div>
             
             <div class="card">
-                <div class="card-title">Ingressos Vendidos</div>
+                <div class="card-title" data-i18n="h.tickets_sold">Ingressos Vendidos</div>
                 <div class="card-value"><?php echo number_format($stats['total_ingressos']); ?></div>
-                <div class="card-subtitle">Total de vendas</div>
+                <div class="card-subtitle" data-i18n="msg.total_sales">Total de vendas</div>
             </div>
             
             <div class="card">
-                <div class="card-title">Receita Total</div>
+                <div class="card-title" data-i18n="h.total_revenue">Receita Total</div>
                 <div class="card-value">R$ <?php echo number_format($stats['receita_total'], 2, ',', '.'); ?></div>
-                <div class="card-subtitle">Valor arrecadado</div>
+                <div class="card-subtitle" data-i18n="msg.amount_raised">Valor arrecadado</div>
             </div>
         </div>
         
         <div class="chart-container">
-            <div class="chart-title">Eventos por Status</div>
+            <div class="chart-title" data-i18n="h.events_by_status">Eventos por Status</div>
             <?php foreach ($stats['eventos_por_status'] as $item): ?>
                 <div class="chart-item">
                     <span class="chart-label"><?php echo $item['status']; ?></span>
@@ -210,7 +210,7 @@ $stats['eventos_recentes'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         
         <div class="chart-container">
-            <div class="chart-title">Usuários por Tipo</div>
+            <div class="chart-title" data-i18n="h.users_by_type">Usuários por Tipo</div>
             <?php foreach ($stats['usuarios_por_tipo'] as $item): ?>
                 <div class="chart-item">
                     <span class="chart-label"><?php echo $item['tipo']; ?></span>
@@ -220,9 +220,9 @@ $stats['eventos_recentes'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         
         <div class="recent-events">
-            <div class="chart-title">Eventos Recentes</div>
+            <div class="chart-title" data-i18n="h.recent_events">Eventos Recentes</div>
             <?php if (empty($stats['eventos_recentes'])): ?>
-                <p>Nenhum evento encontrado.</p>
+                <p data-i18n="msg.no_events_found">Nenhum evento encontrado.</p>
             <?php else: ?>
                 <?php foreach ($stats['eventos_recentes'] as $evento): ?>
                     <div class="event-item">

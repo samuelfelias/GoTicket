@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = trim($_POST['nome']);
     $descricao = trim($_POST['descricao']);
     $data = $_POST['data'];
-    $horario = $_POST['horario'];
+    $horario = $_POST['horario_inicio'];
     $cidade = trim($_POST['cidade']);
     $bairro = trim($_POST['bairro']);
     $rua = trim($_POST['rua']);
@@ -204,7 +204,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="container">
         <div class="form-container" style="max-width: 700px;">
-            <h2 class="form-title">Editar Evento</h2>
+            <h2 class="form-title" data-i18n="h.edit_event">Editar Evento</h2>
             
             <?php
             // Verificar se existe mensagem de erro
@@ -219,59 +219,59 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . '?id=' . $id_evento; ?>" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="nome">Nome do Evento:</label>
+                    <label for="nome" data-i18n="label.event_name">Nome do Evento:</label>
                     <input type="text" id="nome" name="nome" class="form-control" value="<?php echo htmlspecialchars($evento['nome']); ?>" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="descricao">Descrição:</label>
+                    <label for="descricao" data-i18n="label.description">Descrição:</label>
                     <textarea id="descricao" name="descricao" class="form-control" rows="4"><?php echo htmlspecialchars($evento['descricao']); ?></textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label for="data">Data:</label>
+                    <label for="data" data-i18n="label.date">Data:</label>
                     <input type="date" id="data" name="data" class="form-control" value="<?php echo $evento['data']; ?>" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="horario">Horário:</label>
-                    <input type="time" id="horario" name="horario" class="form-control" value="<?php echo $evento['horario']; ?>" required>
+                    <label for="horario" data-i18n="label.start_time">Horário:</label>
+                    <input type="time" id="horario" name="horario" class="form-control" value="<?php echo $evento['horario_inicio']; ?>" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="cidade">Cidade:</label>
+                    <label for="cidade" data-i18n="label.city">Cidade:</label>
                     <input type="text" id="cidade" name="cidade" class="form-control" value="<?php echo htmlspecialchars($cidade); ?>" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="bairro">Bairro:</label>
+                    <label for="bairro" data-i18n="label.district">Bairro:</label>
                     <input type="text" id="bairro" name="bairro" class="form-control" value="<?php echo htmlspecialchars($bairro); ?>" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="rua">Rua:</label>
+                    <label for="rua" data-i18n="label.street">Rua:</label>
                     <input type="text" id="rua" name="rua" class="form-control" value="<?php echo htmlspecialchars($rua); ?>" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="numero">Número:</label>
+                    <label for="numero" data-i18n="label.number">Número:</label>
                     <input type="text" id="numero" name="numero" class="form-control" value="<?php echo htmlspecialchars($numero); ?>" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="imagem">Imagem do Local (opcional):</label>
+                    <label for="imagem" data-i18n="label.image_optional">Imagem do Local (opcional):</label>
                     <input type="file" id="imagem" name="imagem" class="form-control" accept="image/jpeg,image/png">
-                    <small class="form-text">Formatos aceitos: JPG e PNG. Tamanho máximo: 2MB.</small>
+                    <small class="form-text" data-i18n="msg.image_formats">Formatos aceitos: JPG e PNG. Tamanho máximo: 2MB.</small>
                     <?php if(!empty($imagem_url)): ?>
                         <div class="mt-2">
-                            <p>Imagem atual:</p>
+                            <p data-i18n="label.current_image">Imagem atual:</p>
                             <img src="../<?php echo htmlspecialchars($imagem_url); ?>" alt="Imagem do local" style="max-width: 200px; max-height: 200px;">
                         </div>
                     <?php endif; ?>
                 </div>
                 
                 <div class="form-group">
-                    <label for="status">Status:</label>
+                    <label for="status" data-i18n="label.status">Status:</label>
                     <select id="status" name="status" class="form-control" required>
                         <option value="ATIVO" <?php echo ($evento['status'] == 'ATIVO') ? 'selected' : ''; ?>>Ativo</option>
                         <option value="ADIADO" <?php echo ($evento['status'] == 'ADIADO') ? 'selected' : ''; ?>>Adiado</option>
@@ -280,8 +280,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 
                 <div class="form-actions">
-                    <button type="submit" class="btn">Salvar Alterações</button>
-                    <a href="gerenciar_eventos.php" class="btn" style="background-color: #95a5a6;">Cancelar</a>
+                    <button type="submit" class="btn" data-i18n="btn.save_changes">Salvar Alterações</button>
+                    <a href="gerenciar_eventos.php" class="btn" style="background-color: #95a5a6;" data-i18n="btn.cancel">Cancelar</a>
                 </div>
             </form>
         </div>

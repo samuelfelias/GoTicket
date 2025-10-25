@@ -211,24 +211,24 @@ $ingressos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             
             <div class="evento-info">
                 <div class="info-item">
-                    <span class="info-label">Data:</span>
+                    <span class="info-label" data-i18n="label.date">Data:</span>
                     <span class="info-value"><?php echo date('d/m/Y', strtotime($evento['data'])); ?></span>
                 </div>
                 
                 <div class="info-item">
-                    <span class="info-label">Horário de início:</span>
+                    <span class="info-label" data-i18n="label.start_time">Horário de início:</span>
                     <span class="info-value"><?php echo $evento['horario_inicio']; ?></span>
                 </div>
                 
                 <?php if (isset($evento['horario_encerramento']) && !empty($evento['horario_encerramento'])): ?>
                 <div class="info-item">
-                    <span class="info-label">Horário de encerramento:</span>
+                    <span class="info-label" data-i18n="label.end_time">Horário de encerramento:</span>
                     <span class="info-value"><?php echo $evento['horario_encerramento']; ?></span>
                 </div>
                 <?php endif; ?>
                 
                 <div class="info-item">
-                    <span class="info-label">Endereço:</span>
+                    <span class="info-label" data-i18n="label.address">Endereço:</span>
                     <span class="info-value">
                         <?php 
                         if (isset($evento['cidade']) && isset($evento['bairro']) && isset($evento['rua']) && isset($evento['numero'])) {
@@ -247,7 +247,7 @@ $ingressos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
                 
                 <div class="info-item">
-                    <span class="info-label">Organizador:</span>
+                    <span class="info-label" data-i18n="label.organizer">Organizador:</span>
                     <span class="info-value"><?php echo htmlspecialchars($evento['organizador_nome']); ?></span>
                 </div>
             </div>
@@ -260,12 +260,12 @@ $ingressos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php endif; ?>
             
             <div class="evento-descricao">
-                <h3>Descrição</h3>
+                <h3 data-i18n="h.description">Descrição</h3>
                 <p><?php echo nl2br(htmlspecialchars($evento['descricao'])); ?></p>
             </div>
             
             <div class="ingressos-disponiveis">
-                <h3>Ingressos Disponíveis</h3>
+                <h3 data-i18n="h.available_tickets">Ingressos Disponíveis</h3>
                 <?php if (count($ingressos) > 0): ?>
                     <?php if (isset($_SESSION['usuario_id']) && $_SESSION['usuario_tipo'] == 'CLIENTE'): ?>
                         <form action="comprar_ingresso.php" method="post" class="form-compra">
@@ -277,10 +277,10 @@ $ingressos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                         <span class="ingresso-tipo"><?php echo htmlspecialchars($ingresso['tipo']); ?></span>
                                         <span class="ingresso-preco">R$ <?php echo number_format($ingresso['preco'], 2, ',', '.'); ?></span>
                                     </div>
-                                    <div class="ingresso-quantidade">Disponíveis: <?php echo $ingresso['quantidade']; ?></div>
+                                    <div class="ingresso-quantidade" data-i18n="label.available">Disponíveis: <?php echo $ingresso['quantidade']; ?></div>
                                     
                                     <div class="form-group">
-                                        <label for="quantidade_<?php echo $ingresso['id_ingresso']; ?>">Quantidade:</label>
+                                        <label for="quantidade_<?php echo $ingresso['id_ingresso']; ?>" data-i18n="label.quantity">Quantidade:</label>
                                         <select name="ingressos[<?php echo $ingresso['id_ingresso']; ?>]" id="quantidade_<?php echo $ingresso['id_ingresso']; ?>" class="form-control">
                                             <option value="0">0</option>
                                             <?php for ($i = 1; $i <= min(10, $ingresso['quantidade']); $i++): ?>
@@ -291,7 +291,7 @@ $ingressos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 </div>
                             <?php endforeach; ?>
                             
-                            <button type="submit" class="btn btn-primary">Comprar Ingressos</button>
+                            <button type="submit" class="btn btn-primary" data-i18n="btn.buy_tickets">Comprar Ingressos</button>
                         </form>
                     <?php else: ?>
                         <?php foreach ($ingressos as $ingresso): ?>
@@ -300,22 +300,22 @@ $ingressos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                     <span class="ingresso-tipo"><?php echo htmlspecialchars($ingresso['tipo']); ?></span>
                                     <span class="ingresso-preco">R$ <?php echo number_format($ingresso['preco'], 2, ',', '.'); ?></span>
                                 </div>
-                                <div class="ingresso-quantidade">Disponíveis: <?php echo $ingresso['quantidade']; ?></div>
+                                <div class="ingresso-quantidade" data-i18n="label.available">Disponíveis: <?php echo $ingresso['quantidade']; ?></div>
                             </div>
                         <?php endforeach; ?>
                         
                         <div class="alert alert-info mt-3">
-                            <p>Para comprar ingressos, você precisa <a href="../login.php">fazer login</a> como cliente.</p>
+                            <p data-i18n="msg.login_to_buy">Para comprar ingressos, você precisa <a href="../login.php" data-i18n="btn.login">fazer login</a> como cliente.</p>
                         </div>
                     <?php endif; ?>
                 <?php else: ?>
-                    <p>Não há ingressos disponíveis para este evento.</p>
+                    <p data-i18n="msg.no_tickets_available">Não há ingressos disponíveis para este evento.</p>
                 <?php endif; ?>
             </div>
         </div>
         
         <div class="form-actions">
-            <a href="listar_eventos.php" class="btn" style="background-color: #6c757d;">Voltar para Eventos</a>
+            <a href="listar_eventos.php" class="btn" style="background-color: #6c757d;" data-i18n="btn.back_to_events">Voltar para Eventos</a>
         </div>
     </div>
     <?php include '../includes/footer.php'; ?>

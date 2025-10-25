@@ -120,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esqueci Minha Senha - GoTicket</title>
+    <title data-i18n="h.forgot_password">Esqueci Minha Senha - GoTicket</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -128,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php include 'includes/header_simples.php'; ?>
     <div class="container">
         <div class="form-container">
-            <h2 class="form-title">Esqueci Minha Senha</h2>
+            <h2 class="form-title" data-i18n="h.forgot_password">Esqueci Minha Senha</h2>
 
             <?php
             // Exibir mensagem da sessão, se existir
@@ -144,12 +144,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <form method="post">
                 <div class="form-group">
-                    <label for="email">E-mail cadastrado:</label>
+                    <label for="email" data-i18n="label.registered_email">E-mail cadastrado:</label>
                     <input type="email" id="email" name="email" class="form-control" required>
                 </div>
-                <button type="submit" class="btn btn-block">Enviar Link de Redefinição</button>
+                <button type="submit" class="btn btn-block" data-i18n="btn.send_reset_link">Enviar Link de Redefinição</button>
                 <div class="form-footer">
-                    <a href="login.php">Voltar para o login</a>
+                    <a href="login.php" data-i18n="btn.back_to_login">Voltar para o login</a>
                 </div>
             </form>
         </div>

@@ -162,7 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // Buscar informações do evento
 $stmt = $conexao->prepare("
-    SELECT e.nome as nome_evento, e.data, e.horario, e.local
+    SELECT e.nome as nome_evento, e.data, e.horario_inicio, e.local
     FROM ingresso i
     JOIN evento e ON i.id_evento = e.id_evento
     WHERE i.id_pedido = ?
@@ -279,7 +279,7 @@ $resultado_itens = $stmt->get_result();
         <div class="pagamento-container">
             <div class="evento-info">
                 <h3><?php echo htmlspecialchars($evento['nome_evento']); ?></h3>
-                <p><span data-i18n="label.date">Data:</span> <?php echo date('d/m/Y', strtotime($evento['data'])); ?> às <?php echo $evento['horario']; ?></p>
+                <p><span data-i18n="label.date">Data:</span> <?php echo date('d/m/Y', strtotime($evento['data'])); ?> às <?php echo $evento['horario_inicio']; ?></p>
                 <p><span data-i18n="label.location">Local:</span> <?php echo htmlspecialchars($evento['local']); ?></p>
             </div>
             

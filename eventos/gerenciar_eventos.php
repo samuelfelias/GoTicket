@@ -169,16 +169,16 @@ $eventos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <table class="eventos-table">
                     <thead>
                         <tr>
-                            <th>Nome</th>
-                            <th>Data</th>
-                            <th>Horário Início</th>
-                            <th>Horário Fim</th>
-                            <th>Local</th>
-                            <th>Status</th>
+                            <th data-i18n="th.name">Nome</th>
+                            <th data-i18n="th.date">Data</th>
+                            <th data-i18n="th.start_time">Horário Início</th>
+                            <th data-i18n="th.end_time">Horário Fim</th>
+                            <th data-i18n="th.location">Local</th>
+                            <th data-i18n="th.status">Status</th>
                             <?php if ($tipo_usuario == 'ADMIN'): ?>
-                            <th>Organizador</th>
+                            <th data-i18n="th.organizer">Organizador</th>
                             <?php endif; ?>
-                            <th>Ações</th>
+                            <th data-i18n="th.actions">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -238,8 +238,8 @@ $eventos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </table>
             <?php else: ?>
                 <div class="no-events">
-                    <p>Você ainda não possui eventos cadastrados.</p>
-                    <a href="criar_evento.php" class="btn">Criar Primeiro Evento</a>
+                    <p data-i18n="msg.no_events_registered">Você ainda não possui eventos cadastrados.</p>
+                    <a href="criar_evento.php" class="btn" data-i18n="btn.create_first_event">Criar Primeiro Evento</a>
                 </div>
             <?php endif; ?>
         </div>

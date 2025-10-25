@@ -114,7 +114,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingressos Gerados</title>
+    <title data-i18n="h.tickets_generated">Ingressos Gerados</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -147,7 +147,7 @@ try {
     <div class="container mt-4">
         <div class="row">
             <div class="col-12">
-                <h2 class="mb-4">Seus Ingressos Foram Gerados!</h2>
+                <h2 class="mb-4" data-i18n="h.tickets_generated_success">Seus Ingressos Foram Gerados!</h2>
                 
                 <?php if (isset($_SESSION['mensagem'])): ?>
                     <div class="alert alert-info">
@@ -157,33 +157,33 @@ try {
                 <?php endif; ?>
                 
                 <div class="alert alert-success">
-                    <h4>Compra realizada com sucesso!</h4>
-                    <p>Evento: <?= $pedido['evento_nome'] ?></p>
-                    <p>Data: <?= date('d/m/Y H:i', strtotime($pedido['data'])) ?></p>
-                    <p>Local: <?= $pedido['local'] ?></p>
-                    <p>Total: R$ <?= number_format($pedido['valor_total'], 2, ',', '.') ?></p>
+                    <h4 data-i18n="msg.purchase_successful">Compra realizada com sucesso!</h4>
+                    <p><span data-i18n="label.event">Evento:</span> <?= $pedido['evento_nome'] ?></p>
+                    <p><span data-i18n="label.date">Data:</span> <?= date('d/m/Y H:i', strtotime($pedido['data'])) ?></p>
+                    <p><span data-i18n="label.location">Local:</span> <?= $pedido['local'] ?></p>
+                    <p><span data-i18n="label.total">Total:</span> R$ <?= number_format($pedido['valor_total'], 2, ',', '.') ?></p>
                 </div>
                 
-                <h3 class="mb-3">Ingressos:</h3>
+                <h3 class="mb-3" data-i18n="h.tickets">Ingressos:</h3>
                 
                 <div class="row">
                     <?php foreach ($_SESSION['ingressos_gerados'] as $ingresso): ?>
                     <div class="col-md-6">
                         <div class="ingresso-card">
-                            <h4>Ingresso <?= $ingresso['tipo'] ?></h4>
+                            <h4 data-i18n="h.ticket_type">Ingresso <?= $ingresso['tipo'] ?></h4>
                             <div class="qr-code">
-                                <p><strong>Código QR simulado</strong></p>
-                                <p>Código: <?= $ingresso['codigo'] ?></p>
+                                <p><strong data-i18n="label.simulated_qr_code">Código QR simulado</strong></p>
+                                <p><span data-i18n="label.code">Código:</span> <?= $ingresso['codigo'] ?></p>
                             </div>
                             <div class="ingresso-info">
-                                <p><strong>Código:</strong> <?= $ingresso['codigo'] ?></p>
-                                <p><strong>Evento:</strong> <?= $pedido['evento_nome'] ?></p>
-                                <p><strong>Data:</strong> <?= date('d/m/Y H:i', strtotime($pedido['data'])) ?></p>
-                                <p><strong>Local:</strong> <?= $pedido['local'] ?></p>
+                                <p><strong data-i18n="label.code">Código:</strong> <?= $ingresso['codigo'] ?></p>
+                                <p><strong data-i18n="label.event">Evento:</strong> <?= $pedido['evento_nome'] ?></p>
+                                <p><strong data-i18n="label.date">Data:</strong> <?= date('d/m/Y H:i', strtotime($pedido['data'])) ?></p>
+                                <p><strong data-i18n="label.location">Local:</strong> <?= $pedido['local'] ?></p>
                             </div>
                             <div class="download-btn">
                                 <a href="../download_ingresso.php?id=<?= $ingresso['id'] ?>" class="btn btn-primary btn-block">
-                                    <i class="fa fa-download"></i> Download
+                                    <i class="fa fa-download"></i> <span data-i18n="btn.download">Download</span>
                                 </a>
                             </div>
                         </div>
@@ -192,8 +192,8 @@ try {
                 </div>
                 
                 <div class="mt-4 mb-5">
-                    <a href="../meus_ingressos.php" class="btn btn-success">Ver Todos Meus Ingressos</a>
-                    <a href="listar_eventos.php" class="btn btn-secondary ml-2">Voltar para Eventos</a>
+                    <a href="../meus_ingressos.php" class="btn btn-success" data-i18n="btn.see_all_tickets">Ver Todos Meus Ingressos</a>
+                    <a href="listar_eventos.php" class="btn btn-secondary ml-2" data-i18n="btn.back_to_events">Voltar para Eventos</a>
                 </div>
             </div>
         </div>

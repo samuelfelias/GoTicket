@@ -37,7 +37,7 @@ $ingresso_id = $_GET['id'];
     $stmt = $conexao->prepare("
         SELECT iu.id as ingresso_usuario_id, iu.codigo, iu.status as status_ingresso_usuario,
                i.id_ingresso, i.tipo, i.preco, 
-               e.id_evento, e.nome as nome_evento, e.data, e.horario, e.local
+               e.id_evento, e.nome as nome_evento, e.data, e.horario_inicio, e.local
         FROM ingressousuario iu
         JOIN ingresso i ON iu.ingresso_id = i.id_ingresso
         JOIN evento e ON i.id_evento = e.id_evento
@@ -150,32 +150,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         <div class="transferencia-container">
             <div class="ingresso-detalhe">
-                <h3>Detalhes do Ingresso</h3>
+                <h3 data-i18n="h.ticket_details">Detalhes do Ingresso</h3>
                 
-                <div class="info-label">Evento:</div>
+                <div class="info-label" data-i18n="label.event">Evento:</div>
                 <div class="info-valor"><?php echo htmlspecialchars($ingresso['nome_evento']); ?></div>
                 
-                <div class="info-label">Data e Horário:</div>
+                <div class="info-label" data-i18n="label.date">Data e Horário:</div>
                 <div class="info-valor">
-                    <?php echo date('d/m/Y', strtotime($ingresso['data'])); ?> às <?php echo $ingresso['horario']; ?>
+                    <?php echo date('d/m/Y', strtotime($ingresso['data'])); ?> às <?php echo $ingresso['horario_inicio']; ?>
                 </div>
                 
-                <div class="info-label">Local:</div>
+                <div class="info-label" data-i18n="label.location">Local:</div>
                 <div class="info-valor"><?php echo htmlspecialchars($ingresso['local']); ?></div>
                 
-                <div class="info-label">Tipo de Ingresso:</div>
+                <div class="info-label" data-i18n="label.ticket_type">Tipo de Ingresso:</div>
                 <div class="info-valor"><?php echo htmlspecialchars($ingresso['tipo']); ?></div>
                 
-                <div class="info-label">Código:</div>
+                <div class="info-label" data-i18n="label.code">Código:</div>
                 <div class="info-valor"><?php echo htmlspecialchars($ingresso['codigo']); ?></div>
                 
-                <div class="info-label">Valor:</div>
+                <div class="info-label" data-i18n="label.value">Valor:</div>
                 <div class="info-valor">R$ <?php echo number_format($ingresso['preco'], 2, ',', '.'); ?></div>
             </div>
             
             <div class="form-transferencia">
-                <h3>Transferir para</h3>
-                <p>Informe o e-mail da pessoa para quem você deseja transferir este ingresso. O destinatário deve ter uma conta no GoTicket.</p>
+                <h3 data-i18n="h.transfer_ticket">Transferir para</h3>
+                <p data-i18n="msg.enter_recipient_email">Informe o e-mail da pessoa para quem você deseja transferir este ingresso. O destinatário deve ter uma conta no GoTicket.</p>
                 
                 <form method="post" action="">
                     <div class="form-group">
@@ -184,7 +184,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     
                     <div class="form-group" style="margin-top: 20px;">
-                        <button type="submit" class="btn btn-primary" data-i18n="btn.transfer">Transferir Ingresso</button>
+                        <button type="submit" class="btn btn-primary" data-i18n="btn.transfer_ticket">Transferir Ingresso</button>
                         <a href="meus_ingressos.php" class="btn btn-secondary" data-i18n="btn.cancel">Cancelar</a>
                     </div>
                 </form>
