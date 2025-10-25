@@ -26,11 +26,20 @@ $tema_escuro = isset($_SESSION['tema_escuro']) && $_SESSION['tema_escuro'] ? tru
                     <i class="fas fa-sun"></i>
                 </span>
             </button>
+            <button id="lang-toggle" class="btn-lang-toggle" aria-label="Alternar idioma" title="Alternar idioma">
+                <i class="fas fa-globe"></i>
+                <span id="lang-toggle-label" class="lang-toggle-label">PT</span>
+            </button>
         </div>
     </div>
     <script>
         try { if (localStorage.getItem('theme') === 'dark') { document.documentElement.classList.add('dark-theme'); } } catch(e) {}
+        try {
+            var lang = localStorage.getItem('lang') || 'pt';
+            document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'pt-BR');
+        } catch(e) {}
     </script>
     <link rel="stylesheet" href="css/password-toggle.css">
     <script src="js/theme.js" defer></script>
+    <script src="js/lang.js" defer></script>
 </header>

@@ -183,7 +183,7 @@ foreach ($ingressos_data as $row) {
     <?php include 'includes/header.php'; ?>
 
     <div class="container">
-        <h2>Meus Ingressos</h2>
+        <h2 data-i18n="h.my_tickets_title">Meus Ingressos</h2>
         
         <?php
         // Verificar se existe mensagem
@@ -201,7 +201,7 @@ foreach ($ingressos_data as $row) {
                 <div class="sem-ingressos">
                     <h3>Você ainda não possui ingressos</h3>
                     <p>Explore os eventos disponíveis e adquira seus ingressos!</p>
-                    <a href="eventos/listar_eventos.php" class="btn">Ver Eventos</a>
+                    <a href="eventos/listar_eventos.php" class="btn" data-i18n="nav.events">Eventos</a>
                 </div>
             <?php else: ?>
                 <?php foreach ($eventos as $evento): ?>

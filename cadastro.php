@@ -144,7 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php include 'includes/header_simples.php'; ?>
     <div class="container">
         <div class="form-container">
-            <h2 class="form-title">Cadastro de Usuário</h2>
+            <h2 class="form-title" data-i18n="h.signup">Cadastro de Usuário</h2>
             
             <?php
             // Verificar se já existe uma mensagem de erro ou sucesso
@@ -159,24 +159,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="form-group">
-                    <label for="nome">Nome Completo:</label>
+                    <label for="nome" data-i18n="label.name">Nome Completo:</label>
                     <input type="text" id="nome" name="nome" class="form-control" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="cpf">CPF:</label>
+                    <label for="cpf" data-i18n="label.cpf">CPF:</label>
                     <input type="text" id="cpf" name="cpf" class="form-control" maxlength="14" placeholder="000.000.000-00" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="email">E-mail:</label>
+                    <label for="email" data-i18n="label.email">E-mail:</label>
                     <input type="email" id="email" name="email" class="form-control" required>
                 </div>
                 
                 <input type="hidden" name="tipo" value="CLIENTE">
                 
                 <div class="form-group">
-                    <label for="senha">Senha:</label>
+                    <label for="senha" data-i18n="label.password">Senha:</label>
                     <div class="input-group">
                         <input type="password" id="senha" name="senha" class="form-control" minlength="6" required>
                         <button type="button" class="btn btn-outline-secondary toggle-password" data-target="senha">
@@ -186,7 +186,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 
                 <div class="form-group">
-                    <label for="confirmar_senha">Confirmar Senha:</label>
+                    <label for="confirmar_senha" data-i18n="label.confirm_password">Confirmar Senha:</label>
                     <div class="input-group">
                         <input type="password" id="confirmar_senha" name="confirmar_senha" class="form-control" minlength="6" required>
                         <button type="button" class="btn btn-outline-secondary toggle-password" data-target="confirmar_senha">
@@ -195,7 +195,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 </div>
                 
-                <button type="submit" class="btn btn-block">Cadastrar</button>
+                <button type="submit" class="btn btn-block" data-i18n="btn.signup">Cadastrar</button>
                 
                 <div class="form-footer">
                     Já possui uma conta? <a href="login.php">Faça login</a>

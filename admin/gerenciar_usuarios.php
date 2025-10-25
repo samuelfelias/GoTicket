@@ -167,18 +167,7 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container header-content">
-            <div class="logo">GoTicket</div>
-            <ul class="nav-menu">
-                <li><a href="../painel_admin.php">Início</a></li>
-                <li><a href="gerenciar_usuarios.php" class="active">Usuários</a></li>
-                <li><a href="../eventos/gerenciar_eventos.php">Eventos</a></li>
-                <li><a href="relatorios.php">Relatórios</a></li>
-                <li><a href="../logout.php">Sair</a></li>
-            </ul>
-        </div>
-    </header>
+    <?php include '../includes/header.php'; ?>
 
     <div class="container">
         <h2>Gerenciar Usuários</h2>

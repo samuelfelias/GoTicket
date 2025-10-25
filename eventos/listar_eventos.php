@@ -233,30 +233,30 @@ $total_paginas = ceil($total_eventos / $eventos_por_pagina);
 
     <div class="container">
         <div class="panel-container">
-            <h2 class="panel-title">Eventos Disponíveis</h2>
+            <h2 class="panel-title" data-i18n="h.available_events">Eventos Disponíveis</h2>
             
             <!-- Formulário de busca -->
             <div class="search-form">
                 <form action="listar_eventos.php" method="GET">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="busca">Nome do evento:</label>
+                            <label for="busca" data-i18n="label.search_event_name">Nome do evento:</label>
                             <input type="text" id="busca" name="busca" class="form-control" value="<?php echo htmlspecialchars($busca); ?>">
                         </div>
                         
                         <div class="form-group">
-                            <label for="data">Data:</label>
+                            <label for="data" data-i18n="label.date">Data:</label>
                             <input type="date" id="data" name="data" class="form-control" value="<?php echo htmlspecialchars($data); ?>">
                         </div>
                         
                         <div class="form-group">
-                            <label for="local">Local:</label>
-                            <input type="text" id="local" name="local" class="form-control" value="<?php echo htmlspecialchars($local); ?>">
+                            <label for="local" data-i18n="label.location">Local:</label>
+                                <input type="text" id="local" name="local" class="form-control" value="<?php echo htmlspecialchars($local); ?>">
                         </div>
                     </div>
                     
-                    <button type="submit" class="btn">Buscar</button>
-                    <a href="listar_eventos.php" class="btn" style="background-color: #95a5a6;">Limpar Filtros</a>
+                    <button type="submit" class="btn" data-i18n="btn.search">Buscar</button>
+                    <a href="listar_eventos.php" class="btn" style="background-color: #95a5a6;" data-i18n="btn.clear_filters">Limpar Filtros</a>
                 </form>
             </div>
             
@@ -267,9 +267,23 @@ $total_paginas = ceil($total_eventos / $eventos_por_pagina);
                             <h3><?php echo htmlspecialchars($evento['nome']); ?></h3>
                             <p class="evento-data">
                                 <?php 
-                                $data_formatada = date('d/m/Y', strtotime($evento['data']));
-                                $hora_formatada = date('H:i', strtotime($evento['horario']));
-                                echo $data_formatada . ' às ' . $hora_formatada; 
+                                $data_formatada = '';
+                                if (!empty($evento['data'])) {
+                                    $ts_data = strtotime($evento['data']);
+                                    if ($ts_data !== false) {
+                                        $data_formatada = date('d/m/Y', $ts_data);
+                                    }
+                                }
+
+                                $hora_formatada = '';
+                                if (!empty($evento['horario'])) {
+                                    $ts_hora = strtotime($evento['horario']);
+                                    if ($ts_hora !== false) {
+                                        $hora_formatada = date('H:i', $ts_hora);
+                                    }
+                                }
+
+                                echo $data_formatada . (!empty($hora_formatada) ? ' às ' . $hora_formatada : ''); 
                                 ?>
                             </p>
                             <p class="evento-local"><?php 
@@ -289,7 +303,7 @@ $total_paginas = ceil($total_eventos / $eventos_por_pagina);
                                 ?>
                             </p>
                             <p class="evento-organizador">Organizado por: <?php echo htmlspecialchars($evento['organizador_nome']); ?></p>
-                            <a href="detalhes_evento.php?id=<?php echo $evento['id_evento']; ?>" class="btn btn-ver-detalhes">Ver Detalhes</a>
+                            <a href="detalhes_evento.php?id=<?php echo $evento['id_evento']; ?>" class="btn btn-ver-detalhes" data-i18n="btn.view_details">Ver Detalhes</a>
                         </div>
                     <?php endforeach; ?>
                 </div>

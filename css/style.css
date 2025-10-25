@@ -83,6 +83,69 @@
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* Botão de alternar idioma */
+.btn-lang-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s ease;
+    color: var(--header-text);
+    overflow: hidden;
+    margin-right: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    gap: 4px;
+}
+
+.btn-lang-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.btn-lang-toggle:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.btn-lang-toggle i {
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.lang-toggle-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-lang-toggle:hover .lang-toggle-label {
+    transform: scale(1.1);
+}
+
+.btn-lang-toggle::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.btn-lang-toggle:active::after {
+    opacity: 1;
+}
+
 .btn-theme-toggle:hover {
     background-color: rgba(255, 255, 255, 0.2);
     transform: scale(1.1);
@@ -1348,6 +1411,19 @@ footer {
     .btn-theme-toggle {
         width: 35px;
         height: 35px;
+    }
+    
+    .btn-lang-toggle {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .btn-lang-toggle i {
+        font-size: 1rem;
+    }
+    
+    .lang-toggle-label {
+        font-size: 0.7rem;
     }
 }
 

@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="container">
         <div class="form-container" style="max-width: 700px;">
-            <h2 class="form-title">Criar Novo Evento</h2>
+            <h2 class="form-title" data-i18n="h.create_event">Criar Novo Evento</h2>
 
             <?php
             if (isset($_SESSION['mensagem'])) {
@@ -116,52 +116,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="form-group">
-                    <label for="nome">Nome do Evento:</label>
+                    <label for="nome" data-i18n="label.event_name">Nome do Evento:</label>
                     <input type="text" id="nome" name="nome" class="form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="descricao">Descrição:</label>
+                    <label for="descricao" data-i18n="label.description">Descrição:</label>
                     <textarea id="descricao" name="descricao" class="form-control" rows="4"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="data">Data:</label>
+                    <label for="data" data-i18n="label.date">Data:</label>
                     <input type="date" id="data" name="data" class="form-control" required min="<?php echo date('Y-m-d'); ?>">
                 </div>
 
                 <div class="form-group">
-                    <label for="horario">Horário de Início:</label>
+                    <label for="horario" data-i18n="label.start_time">Horário de Início:</label>
                     <input type="time" id="horario" name="horario" class="form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="horario_encerramento">Horário de Encerramento:</label>
+                    <label for="horario_encerramento" data-i18n="label.end_time">Horário de Encerramento:</label>
                     <input type="time" id="horario_encerramento" name="horario_encerramento" class="form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="cidade">Cidade:</label>
+                    <label for="cidade" data-i18n="label.city">Cidade:</label>
                     <input type="text" id="cidade" name="cidade" class="form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="bairro">Bairro:</label>
+                    <label for="bairro" data-i18n="label.district">Bairro:</label>
                     <input type="text" id="bairro" name="bairro" class="form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="rua">Rua:</label>
+                    <label for="rua" data-i18n="label.street">Rua:</label>
                     <input type="text" id="rua" name="rua" class="form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="numero">Número:</label>
+                    <label for="numero" data-i18n="label.number">Número:</label>
                     <input type="text" id="numero" name="numero" class="form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="status">Status:</label>
+                    <label for="status" data-i18n="label.status">Status:</label>
                     <select id="status" name="status" class="form-control" required>
                         <option value="ATIVO">Ativo</option>
                         <option value="ADIADO">Adiado</option>
@@ -170,8 +170,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div class="form-actions">
-                    <button type="submit" class="btn">Criar Evento</button>
-                    <a href="gerenciar_eventos.php" class="btn" style="background-color: #95a5a6;">Cancelar</a>
+                    <button type="submit" class="btn" data-i18n="btn.create_event">Criar Evento</button>
+                    <a href="gerenciar_eventos.php" class="btn" style="background-color: #95a5a6;" data-i18n="btn.cancel">Cancelar</a>
                 </div>
             </form>
         </div>

@@ -18,13 +18,18 @@ if (session_status() == PHP_SESSION_NONE) {
     <link rel="stylesheet" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'index.php') !== false || strpos($_SERVER['REQUEST_URI'], '/') === strlen($_SERVER['REQUEST_URI'])-1) ? 'css/style.css' : '../css/style.css'; ?>">
     <link rel="stylesheet" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'index.php') !== false || strpos($_SERVER['REQUEST_URI'], '/') === strlen($_SERVER['REQUEST_URI'])-1) ? 'css/password-toggle.css' : '../css/password-toggle.css'; ?>">
     <script>
-        // Aplicar tema o mais cedo possível
+        // Aplicar tema e idioma o mais cedo possível
         try { if (localStorage.getItem('theme') === 'dark') { document.documentElement.classList.add('dark-theme'); } } catch (e) {}
+        try {
+            var lang = localStorage.getItem('lang') || 'pt';
+            document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'pt-BR');
+        } catch (e) {}
     </script>
     <!-- Preconectar a domínios externos para melhorar o tempo de carregamento -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <script src="<?php echo (strpos($_SERVER['REQUEST_URI'], 'index.php') !== false || strpos($_SERVER['REQUEST_URI'], '/') === strlen($_SERVER['REQUEST_URI'])-1) ? 'js/theme.js' : '../js/theme.js'; ?>" defer></script>
+    <script src="<?php echo (strpos($_SERVER['REQUEST_URI'], 'index.php') !== false || strpos($_SERVER['REQUEST_URI'], '/') === strlen($_SERVER['REQUEST_URI'])-1) ? 'js/lang.js' : '../js/lang.js'; ?>" defer></script>
 </head>
 <body>
     <header class="header">
@@ -52,34 +57,40 @@ if (session_status() == PHP_SESSION_NONE) {
                         </span>
                     </button>
                 </li>
+                <li>
+                    <button id="lang-toggle" class="btn-lang-toggle" aria-label="Alternar idioma" title="Alternar idioma">
+                        <i class="fas fa-globe"></i>
+                        <span id="lang-toggle-label" class="lang-toggle-label">PT</span>
+                    </button>
+                </li>
                 <?php if (isset($_SESSION['usuario_id'])): ?>
                     <?php if ($_SESSION['usuario_tipo'] == 'CLIENTE'): ?>
-                        <li><a href="../painel_cliente.php">Início</a></li>
-                        <li><a href="../eventos/listar_eventos.php">Eventos</a></li>
-                        <li><a href="../meus_ingressos.php">Meus Ingressos</a></li>
-                        <li><a href="../painel_cliente.php?tab=pedidos">Meus Pedidos</a></li>
-                        <li><a href="../perfil_usuario.php">Meu Perfil</a></li>
-                        <li><a href="../logout.php">Sair</a></li>
+                        <li><a href="<?php echo htmlspecialchars($base); ?>painel_cliente.php" data-i18n="nav.home">Início</a></li>
+                        <li><a href="<?php echo htmlspecialchars($base); ?>eventos/listar_eventos.php" data-i18n="nav.events">Eventos</a></li>
+                        <li><a href="<?php echo htmlspecialchars($base); ?>meus_ingressos.php" data-i18n="nav.my_tickets">Meus Ingressos</a></li>
+                        <li><a href="<?php echo htmlspecialchars($base); ?>painel_cliente.php?tab=pedidos" data-i18n="nav.my_orders">Meus Pedidos</a></li>
+                        <li><a href="<?php echo htmlspecialchars($base); ?>perfil_usuario.php" data-i18n="nav.my_profile">Meu Perfil</a></li>
+                        <li><a href="<?php echo htmlspecialchars($base); ?>logout.php" data-i18n="nav.logout">Sair</a></li>
                     <?php elseif ($_SESSION['usuario_tipo'] == 'ORGANIZADOR'): ?>
-                        <li><a href="../painel_organizador.php">Início</a></li>
-                        <li><a href="../eventos/gerenciar_eventos.php">Meus Eventos</a></li>
-                        <li><a href="../eventos/criar_evento.php">Criar Evento</a></li>
-                        <li><a href="../validar_ingresso.php">Validar Ingressos</a></li>
-                        <li><a href="../perfil_usuario.php">Meu Perfil</a></li>
-                        <li><a href="../pagamentos.php">Planos</a></li>
-                        <li><a href="../logout.php">Sair</a></li>
+                        <li><a href="<?php echo htmlspecialchars($base); ?>painel_organizador.php" data-i18n="nav.home">Início</a></li>
+                        <li><a href="<?php echo htmlspecialchars($base); ?>eventos/gerenciar_eventos.php" data-i18n="nav.my_events">Meus Eventos</a></li>
+                        <li><a href="<?php echo htmlspecialchars($base); ?>eventos/criar_evento.php" data-i18n="nav.create_event">Criar Evento</a></li>
+                        <li><a href="<?php echo htmlspecialchars($base); ?>validar_ingresso.php" data-i18n="nav.validate_tickets">Validar Ingressos</a></li>
+                        <li><a href="<?php echo htmlspecialchars($base); ?>perfil_usuario.php" data-i18n="nav.my_profile">Meu Perfil</a></li>
+                        <li><a href="<?php echo htmlspecialchars($base); ?>pagamentos.php" data-i18n="nav.plans">Planos</a></li>
+                        <li><a href="<?php echo htmlspecialchars($base); ?>logout.php" data-i18n="nav.logout">Sair</a></li>
                     <?php elseif ($_SESSION['usuario_tipo'] == 'ADMIN'): ?>
-                        <li><a href="../painel_admin.php">Início</a></li>
-                        <li><a href="../admin/gerenciar_usuarios.php">Usuários</a></li>
-                        <li><a href="../eventos/gerenciar_eventos.php?admin=true">Eventos</a></li>
-                        <li><a href="../admin/relatorios.php">Relatórios</a></li>
-                        <li><a href="../logout.php">Sair</a></li>
+                        <li><a href="<?php echo htmlspecialchars($base); ?>painel_admin.php" data-i18n="nav.home">Início</a></li>
+                        <li><a href="<?php echo htmlspecialchars($base); ?>admin/gerenciar_usuarios.php" data-i18n="nav.users">Usuários</a></li>
+                        <li><a href="<?php echo htmlspecialchars($base); ?>eventos/gerenciar_eventos.php?admin=true" data-i18n="nav.events">Eventos</a></li>
+                        <li><a href="<?php echo htmlspecialchars($base); ?>admin/relatorios.php" data-i18n="nav.reports">Relatórios</a></li>
+                        <li><a href="<?php echo htmlspecialchars($base); ?>logout.php" data-i18n="nav.logout">Sair</a></li>
                     <?php endif; ?>
                 <?php else: ?>
-                    <li><a href="../index.php">Início</a></li>
-                    <li><a href="../eventos/listar_eventos.php">Eventos</a></li>
-                    <li><a href="../login.php">Login</a></li>
-                    <li><a href="../cadastro.php">Cadastro</a></li>
+                    <li><a href="<?php echo htmlspecialchars($base); ?>index.php" data-i18n="nav.home">Início</a></li>
+                    <li><a href="<?php echo htmlspecialchars($base); ?>eventos/listar_eventos.php" data-i18n="nav.events">Eventos</a></li>
+                    <li><a href="<?php echo htmlspecialchars($base); ?>login.php" data-i18n="nav.login">Login</a></li>
+                    <li><a href="<?php echo htmlspecialchars($base); ?>cadastro.php" data-i18n="nav.signup">Cadastro</a></li>
                 <?php endif; ?>
             </ul>
         </div>

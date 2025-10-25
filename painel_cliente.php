@@ -95,7 +95,7 @@ $pedidos = $stmt_pedidos->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="container">
         <div class="panel-container">
-            <h2 class="panel-title">Painel do Cliente</h2>
+            <h2 class="panel-title" data-i18n="h.client_dashboard">Painel do Cliente</h2>
             
             <div class="welcome-message">
                 <p>Bem-vindo(a), <?php echo htmlspecialchars($_SESSION['usuario_nome']); ?>!</p>
@@ -113,7 +113,7 @@ $pedidos = $stmt_pedidos->fetchAll(PDO::FETCH_ASSOC);
                 } else {
                     // Mostrar página inicial padrão
                 ?>
-                    <h3>Próximos Eventos</h3>
+                    <h3 data-i18n="h.upcoming_events">Próximos Eventos</h3>
                     <div class="eventos-grid">
                         <?php if (count($eventos) > 0): ?>
                             <?php foreach ($eventos as $evento): ?>
@@ -121,17 +121,17 @@ $pedidos = $stmt_pedidos->fetchAll(PDO::FETCH_ASSOC);
                                     <h4><?php echo htmlspecialchars($evento['nome']); ?></h4>
                                     <p class="evento-data"><?php echo date('d/m/Y', strtotime($evento['data'])); ?></p>
                                     <p class="evento-local"><?php echo htmlspecialchars($evento['local']); ?></p>
-                                    <p class="evento-organizador">Organizado por: <?php echo htmlspecialchars($evento['organizador_nome']); ?></p>
-                                    <a href="eventos/detalhes_evento.php?id=<?php echo $evento['id_evento']; ?>" class="btn btn-primary">Ver Detalhes</a>
+                                    <p class="evento-organizador"><span data-i18n="label.organized_by">Organizado por:</span> <?php echo htmlspecialchars($evento['organizador_nome']); ?></p>
+                                    <a href="eventos/detalhes_evento.php?id=<?php echo $evento['id_evento']; ?>" class="btn btn-primary" data-i18n="btn.view_details">Ver Detalhes</a>
                                 </div>
                             <?php endforeach; ?>
                         <?php else: ?>
-                            <p>Não há eventos disponíveis no momento.</p>
+                            <p data-i18n="msg.no_events_available">Não há eventos disponíveis no momento.</p>
                         <?php endif; ?>
                     </div>
-                    <p class="ver-mais"><a href="eventos/listar_eventos.php">Ver todos os eventos</a></p>
+                    <p class="ver-mais"><a href="eventos/listar_eventos.php" data-i18n="btn.see_all_events">Ver todos os eventos</a></p>
                     
-                    <h3>Meus Ingressos</h3>
+                    <h3 data-i18n="h.my_tickets_title">Meus Ingressos</h3>
                     <div class="ingressos-grid">
                         <?php if (count($ingressos) > 0): ?>
                             <?php foreach ($ingressos as $ingresso): ?>
@@ -140,17 +140,17 @@ $pedidos = $stmt_pedidos->fetchAll(PDO::FETCH_ASSOC);
                                     <p class="ingresso-tipo"><?php echo htmlspecialchars($ingresso['tipo']); ?></p>
                                     <p class="ingresso-data"><?php echo date('d/m/Y', strtotime($ingresso['data'])); ?></p>
                                     <p class="ingresso-local"><?php echo htmlspecialchars($ingresso['local']); ?></p>
-                                    <p class="ingresso-codigo">Código: <?php echo htmlspecialchars($ingresso['codigo']); ?></p>
-                                    <a href="download_ingresso.php?id=<?php echo $ingresso['id']; ?>" class="btn btn-secondary">Download</a>
+                                    <p class="ingresso-codigo"><span data-i18n="label.code">Código:</span> <?php echo htmlspecialchars($ingresso['codigo']); ?></p>
+                                    <a href="download_ingresso.php?id=<?php echo $ingresso['id']; ?>" class="btn btn-secondary" data-i18n="btn.download">Download</a>
                                 </div>
                             <?php endforeach; ?>
                         <?php else: ?>
-                            <p>Você ainda não possui ingressos.</p>
+                            <p data-i18n="msg.no_tickets_yet">Você ainda não possui ingressos.</p>
                         <?php endif; ?>
                     </div>
-                    <p class="ver-mais"><a href="meus_ingressos.php">Ver todos os ingressos</a></p>
+                    <p class="ver-mais"><a href="meus_ingressos.php" data-i18n="btn.see_all_tickets">Ver todos os ingressos</a></p>
                     
-                    <h3>Meus Pedidos Recentes</h3>
+                    <h3 data-i18n="h.recent_orders">Meus Pedidos Recentes</h3>
                     <div class="pedidos-lista">
                         <?php if (count($pedidos) > 0): ?>
                             <?php foreach ($pedidos as $pedido): ?>
@@ -167,10 +167,10 @@ $pedidos = $stmt_pedidos->fetchAll(PDO::FETCH_ASSOC);
                                 </div>
                             <?php endforeach; ?>
                         <?php else: ?>
-                            <p>Você ainda não realizou nenhum pedido.</p>
+                            <p data-i18n="msg.no_orders_yet">Você ainda não realizou nenhum pedido.</p>
                         <?php endif; ?>
                     </div>
-                    <p class="ver-mais"><a href="painel_cliente.php?tab=pedidos">Ver todos os pedidos</a></p>
+                    <p class="ver-mais"><a href="painel_cliente.php?tab=pedidos" data-i18n="btn.see_all_orders">Ver todos os pedidos</a></p>
                 <?php } ?>
             </div>
         </div>

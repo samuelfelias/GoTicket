@@ -142,25 +142,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirmar_exclusao']))
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container header-content">
-            <div class="logo">GoTicket</div>
-            <ul class="nav-menu">
-                <?php if ($_SESSION['usuario_tipo'] == 'ORGANIZADOR'): ?>
-                <li><a href="../painel_organizador.php">Início</a></li>
-                <li><a href="gerenciar_eventos.php">Meus Eventos</a></li>
-                <li><a href="criar_evento.php">Criar Evento</a></li>
-                <li><a href="#">Relatórios</a></li>
-                <?php else: ?>
-                <li><a href="../painel_admin.php">Início</a></li>
-                <li><a href="#">Usuários</a></li>
-                <li><a href="gerenciar_eventos.php">Eventos</a></li>
-                <li><a href="#">Relatórios</a></li>
-                <?php endif; ?>
-                <li><a href="../logout.php">Sair</a></li>
-            </ul>
-        </div>
-    </header>
+    <?php include '../includes/header.php'; ?>
 
     <div class="container">
         <div class="form-container" style="max-width: 700px;">

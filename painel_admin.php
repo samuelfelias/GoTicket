@@ -157,21 +157,10 @@ $usuarios_recentes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container header-content">
-            <div class="logo">GoTicket</div>
-            <ul class="nav-menu">
-                <li><a href="painel_admin.php" class="active">Início</a></li>
-                <li><a href="admin/gerenciar_usuarios.php">Usuários</a></li>
-                <li><a href="eventos/gerenciar_eventos.php">Eventos</a></li>
-                <li><a href="admin/relatorios.php">Relatórios</a></li>
-                <li><a href="logout.php">Sair</a></li>
-            </ul>
-        </div>
-    </header>
+    <?php include 'includes/header.php'; ?>
 
     <div class="container">
-        <h1>Painel Administrativo</h1>
+        <h1 data-i18n="h.admin_dashboard">Painel Administrativo</h1>
         
         <?php
         // Verificar se existe mensagem

@@ -28,7 +28,7 @@ if ($_SESSION['usuario_tipo'] != 'ORGANIZADOR') {
 
     <div class="container">
         <div class="panel-container">
-            <h2 class="panel-title">Painel do Organizador</h2>
+            <h2 class="panel-title" data-i18n="h.organizer_dashboard">Painel do Organizador</h2>
             
             <div class="welcome-message">
                 <p>Bem-vindo(a), <?php echo htmlspecialchars($_SESSION['usuario_nome']); ?>!</p>

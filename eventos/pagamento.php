@@ -264,7 +264,7 @@ $resultado_itens = $stmt->get_result();
     <?php include '../includes/header.php'; ?>
 
     <div class="container">
-        <h2 class="page-title">Finalizar Pagamento</h2>
+        <h2 class="page-title" data-i18n="h.payment">Finalizar Pagamento</h2>
         
         <?php if (isset($_SESSION['mensagem'])): ?>
             <div class="alert alert-<?php echo $_SESSION['mensagem_tipo']; ?>">
@@ -279,12 +279,12 @@ $resultado_itens = $stmt->get_result();
         <div class="pagamento-container">
             <div class="evento-info">
                 <h3><?php echo htmlspecialchars($evento['nome_evento']); ?></h3>
-                <p>Data: <?php echo date('d/m/Y', strtotime($evento['data'])); ?> às <?php echo $evento['horario']; ?></p>
-                <p>Local: <?php echo htmlspecialchars($evento['local']); ?></p>
+                <p><span data-i18n="label.date">Data:</span> <?php echo date('d/m/Y', strtotime($evento['data'])); ?> às <?php echo $evento['horario']; ?></p>
+                <p><span data-i18n="label.location">Local:</span> <?php echo htmlspecialchars($evento['local']); ?></p>
             </div>
             
             <div class="resumo-pedido">
-                <h3>Resumo do Pedido</h3>
+                <h3 data-i18n="h.order_summary">Resumo do Pedido</h3>
                 
                 <?php while ($item = $resultado_itens->fetch_assoc()): ?>
                     <div class="resumo-item">
@@ -299,36 +299,36 @@ $resultado_itens = $stmt->get_result();
                 <?php endwhile; ?>
                 
                 <div class="resumo-total">
-                    Total: R$ <?php echo number_format($valor_total, 2, ',', '.'); ?>
+                    <span data-i18n="label.total">Total:</span> R$ <?php echo number_format($valor_total, 2, ',', '.'); ?>
                 </div>
             </div>
             
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="metodos-pagamento">
-                    <h3>Escolha o método de pagamento</h3>
+                    <h3 data-i18n="h.choose_payment_method">Escolha o método de pagamento</h3>
                     
                     <label class="metodo-item">
                         <input type="radio" name="metodo_pagamento" value="CARTAO" required>
-                        Cartão de Crédito
+                        <span data-i18n="pm.credit_card">Cartão de Crédito</span>
                     </label>
                     
                     <label class="metodo-item">
                         <input type="radio" name="metodo_pagamento" value="DEBITO">
-                        Cartão de Débito
+                        <span data-i18n="pm.debit_card">Cartão de Débito</span>
                     </label>
                     
                     <label class="metodo-item">
                         <input type="radio" name="metodo_pagamento" value="PIX">
-                        PIX
+                        <span data-i18n="pm.pix">PIX</span>
                     </label>
                     
                     <label class="metodo-item">
                         <input type="radio" name="metodo_pagamento" value="BOLETO">
-                        Boleto Bancário
+                        <span data-i18n="pm.boleto">Boleto Bancário</span>
                     </label>
                 </div>
                 
-                <button type="submit" class="btn btn-finalizar">Finalizar Pagamento</button>
+                <button type="submit" class="btn btn-finalizar" data-i18n="btn.finish_payment">Finalizar Pagamento</button>
             </form>
         </div>
     </div>

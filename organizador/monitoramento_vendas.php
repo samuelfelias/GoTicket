@@ -282,7 +282,7 @@ try {
 
     <div class="container">
         <div class="panel-container">
-            <h2 class="panel-title">Monitoramento de Vendas</h2>
+            <h2 class="panel-title" data-i18n="h.sales_monitor">Monitoramento de Vendas</h2>
             
             <?php if (isset($erro)): ?>
                 <div class="alert alert-danger"><?php echo htmlspecialchars($erro); ?></div>

@@ -112,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php include 'includes/header_simples.php'; ?>
     <div class="container">
         <div class="form-container">
-            <h2 class="form-title">Login</h2>
+            <h2 class="form-title" data-i18n="h.login">Login</h2>
             
             <?php
             // Verificar se já existe uma mensagem de erro ou sucesso
@@ -127,12 +127,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="form-group">
-                    <label for="email">E-mail:</label>
+                    <label for="email" data-i18n="label.email">E-mail:</label>
                     <input type="email" id="email" name="email" class="form-control" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="senha">Senha:</label>
+                    <label for="senha" data-i18n="label.password">Senha:</label>
                     <div class="input-group">
                         <input type="password" id="senha" name="senha" class="form-control" required>
                         <button type="button" class="btn btn-outline-secondary toggle-password" data-target="senha">
@@ -141,7 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 </div>
                 
-                <button type="submit" class="btn btn-block">Entrar</button>
+                <button type="submit" class="btn btn-block" data-i18n="btn.login">Entrar</button>
                 
                 <div class="form-footer">
                     Não possui uma conta? <a href="cadastro.php">Cadastre-se</a><br>

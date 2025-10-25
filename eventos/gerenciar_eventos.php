@@ -148,7 +148,7 @@ $eventos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="container">
         <div class="panel-container">
-            <h2 class="panel-title">Gerenciar Eventos</h2>
+            <h2 class="panel-title" data-i18n="h.manage_events">Gerenciar Eventos</h2>
             
             <?php
             // Verificar se existe mensagem de sucesso ou erro
@@ -162,7 +162,7 @@ $eventos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             ?>
             
             <div class="panel-actions">
-                <a href="criar_evento.php" class="btn">Criar Novo Evento</a>
+                <a href="criar_evento.php" class="btn" data-i18n="h.create_event">Criar Novo Evento</a>
             </div>
             
             <?php if (count($eventos) > 0): ?>
@@ -227,9 +227,9 @@ $eventos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <?php endif; ?>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="editar_evento.php?id=<?php echo $evento['id_evento']; ?>" class="btn btn-small btn-editar">Editar</a>
-                                        <a href="gerenciar_ingressos.php?id=<?php echo $evento['id_evento']; ?>" class="btn btn-small btn-ingressos">Ingressos</a>
-                                        <a href="excluir_evento.php?id=<?php echo $evento['id_evento']; ?>" class="btn btn-small btn-excluir" onclick="return confirm('Tem certeza que deseja excluir este evento?');">Excluir</a>
+                                        <a href="editar_evento.php?id=<?php echo $evento['id_evento']; ?>" class="btn btn-small btn-editar" data-i18n="btn.edit">Editar</a>
+                                        <a href="gerenciar_ingressos.php?id=<?php echo $evento['id_evento']; ?>" class="btn btn-small btn-ingressos" data-i18n="btn.tickets">Ingressos</a>
+                                        <a href="excluir_evento.php?id=<?php echo $evento['id_evento']; ?>" class="btn btn-small btn-excluir" data-i18n="btn.delete" onclick="return confirm('Tem certeza que deseja excluir este evento?');">Excluir</a>
                                     </div>
                                 </td>
                             </tr>

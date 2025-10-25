@@ -250,14 +250,14 @@ include 'includes/header.php';
     
 
     <div class="container">
-        <h2>Validar Ingressos</h2>
+        <h2 data-i18n="h.validate_tickets">Validar Ingressos</h2>
         
         <div class="validacao-container">
             <div class="form-validacao">
-                <h3>Digite ou escaneie o código do ingresso</h3>
+                <h3 data-i18n="h.scan_code">Digite ou escaneie o código do ingresso</h3>
                 <form action="validar_ingresso.php" method="post">
-                    <input type="text" name="codigo" class="codigo-input" placeholder="Digite o código do ingresso" autofocus>
-                    <button type="submit" class="btn-validar">Validar Ingresso</button>
+                    <input type="text" name="codigo" class="codigo-input" data-i18n-placeholder="ph.ticket_code" placeholder="Digite o código do ingresso" autofocus>
+                    <button type="submit" class="btn-validar" data-i18n="btn.validate_ticket">Validar Ingresso</button>
                 </form>
             </div>
             
@@ -269,15 +269,15 @@ include 'includes/header.php';
             
             <?php if ($ingresso): ?>
                 <div class="ingresso-info">
-                    <h3>Informações do Ingresso</h3>
+                    <h3 data-i18n="h.ticket_info">Informações do Ingresso</h3>
                     
                     <div class="info-row">
-                        <div class="info-label">Código:</div>
+                        <div class="info-label" data-i18n="label.code">Código:</div>
                         <div><?php echo htmlspecialchars($ingresso['codigo']); ?></div>
                     </div>
                     
                     <div class="info-row">
-                        <div class="info-label">Status:</div>
+                        <div class="info-label" data-i18n="label.status">Status:</div>
                         <div>
                             <span class="status-badge status-<?php echo strtolower($ingresso['status']) == 'ativo' ? 'valido' : (strtolower($ingresso['status']) == 'usado' ? 'usado' : 'cancelado'); ?>">
                                 <?php echo $ingresso['status']; ?>
@@ -286,53 +286,53 @@ include 'includes/header.php';
                     </div>
                     
                     <div class="info-row">
-                        <div class="info-label">Evento:</div>
+                        <div class="info-label" data-i18n="label.event">Evento:</div>
                         <div><?php echo htmlspecialchars($ingresso['evento_nome']); ?></div>
                     </div>
                     
                     <div class="info-row">
-                        <div class="info-label">Data:</div>
+                        <div class="info-label" data-i18n="label.date">Data:</div>
                         <div><?php echo date('d/m/Y', strtotime($ingresso['data'])); ?></div>
                     </div>
                     
                     <div class="info-row">
-                        <div class="info-label">Horário:</div>
+                        <div class="info-label" data-i18n="label.time">Horário:</div>
                         <div><?php echo $ingresso['horario']; ?></div>
                     </div>
                     
                     <div class="info-row">
-                        <div class="info-label">Local:</div>
+                        <div class="info-label" data-i18n="label.location">Local:</div>
                         <div><?php echo htmlspecialchars($ingresso['local']); ?></div>
                     </div>
                     
                     <div class="info-row">
-                        <div class="info-label">Tipo de Ingresso:</div>
+                        <div class="info-label" data-i18n="label.ticket_type">Tipo de Ingresso:</div>
                         <div><?php echo htmlspecialchars($ingresso['tipo']); ?></div>
                     </div>
                     
                     <div class="info-row">
-                        <div class="info-label">Valor:</div>
+                        <div class="info-label" data-i18n="label.value">Valor:</div>
                         <div>R$ <?php echo number_format($ingresso['preco'], 2, ',', '.'); ?></div>
                     </div>
                     
                     <div class="info-row">
-                        <div class="info-label">Nome do Cliente:</div>
+                        <div class="info-label" data-i18n="label.customer_name">Nome do Cliente:</div>
                         <div><?php echo htmlspecialchars($ingresso['nome_usuario']); ?></div>
                     </div>
                     
                     <div class="info-row">
-                        <div class="info-label">Email do Cliente:</div>
+                        <div class="info-label" data-i18n="label.customer_email">Email do Cliente:</div>
                         <div><?php echo htmlspecialchars($ingresso['email_usuario']); ?></div>
                     </div>
                     
                     <div class="info-row">
-                        <div class="info-label">Data de Aquisição:</div>
+                        <div class="info-label" data-i18n="label.purchase_date">Data de Aquisição:</div>
                         <div><?php echo date('d/m/Y H:i:s', strtotime($ingresso['data_aquisicao'])); ?></div>
                     </div>
                     
                     <?php if ($ingresso['status'] == 'USADO' && isset($ingresso['data_uso'])): ?>
                     <div class="info-row">
-                        <div class="info-label">Data de Uso:</div>
+                        <div class="info-label" data-i18n="label.usage_date">Data de Uso:</div>
                         <div><?php echo date('d/m/Y H:i:s', strtotime($ingresso['data_uso'])); ?></div>
                     </div>
                     <?php endif; ?>
@@ -341,7 +341,7 @@ include 'includes/header.php';
                     <form action="validar_ingresso.php" method="post" style="margin-top: 20px;">
                         <input type="hidden" name="ingresso_id" value="<?php echo $ingresso['id']; ?>">
                         <input type="hidden" name="codigo" value="<?php echo htmlspecialchars($ingresso['codigo']); ?>">
-                        <button type="submit" name="marcar_usado" class="btn-marcar-usado">Marcar como USADO</button>
+                        <button type="submit" name="marcar_usado" class="btn-marcar-usado" data-i18n="btn.mark_as_used">Marcar como USADO</button>
                     </form>
                     <?php endif; ?>
                 </div>

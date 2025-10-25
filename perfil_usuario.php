@@ -125,7 +125,7 @@ include 'includes/header.php';
 ?>
 
 <div class="container mt-4 fade-in">
-    <h1 class="text-center mb-4">Meu Perfil</h1>
+    <h1 class="text-center mb-4" data-i18n="h.user_profile">Meu Perfil</h1>
     
     <?php if (!empty($mensagem)): ?>
     <div class="alert-container mb-4 fade-in">
@@ -228,11 +228,11 @@ include 'includes/header.php';
         <div class="col-md-8">
             <div class="card panel-container slide-in-right" style="animation-delay: 0.3s;">
                 <div class="card-header bg-primary text-white" style="border-radius: 16px 16px 0 0;">
-                    <h5 class="card-title mb-0"><i class="fas fa-heart me-2"></i>Preferências de Eventos</h5>
+                    <h5 class="card-title mb-0"><i class="fas fa-heart me-2"></i><span data-i18n="h.event_preferences">Preferências de Eventos</span></h5>
                 </div>
                 <div class="card-body">
                     <form method="post" id="formPreferencias">
-                        <p class="lead mb-4">Selecione os tipos de eventos que você tem interesse:</p>
+                        <p class="lead mb-4" data-i18n="msg.select_event_types">Selecione os tipos de eventos que você tem interesse:</p>
 
                         <div class="preferences-toolbar d-flex flex-wrap align-items-center gap-2 mb-3">
                             <div class="input-group">
@@ -240,14 +240,14 @@ include 'includes/header.php';
                                     <i class="fas fa-search text-muted"></i>
                                 </span>
                                 <input type="text" class="form-control search-input border-start-0" id="filtroPreferencias" 
-                                       placeholder="Filtrar tipos de eventos..." aria-label="Filtrar tipos de eventos">
+                                       data-i18n-placeholder="ph.filter_event_types" data-i18n-aria-label="ph.filter_event_types" placeholder="Filtrar tipos de eventos..." aria-label="Filtrar tipos de eventos">
                             </div>
                             <div class="ms-auto d-flex gap-2">
                                 <button class="btn btn-outline-primary btn-sm" type="button" id="btnSelecionarTodos">
-                                    <i class="fas fa-check-double me-1"></i> Selecionar todos
+                                    <i class="fas fa-check-double me-1"></i> <span data-i18n="btn.select_all">Selecionar todos</span>
                                 </button>
                                 <button class="btn btn-outline-secondary btn-sm" type="button" id="btnLimpar">
-                                    <i class="fas fa-times me-1"></i> Limpar
+                                    <i class="fas fa-times me-1"></i> <span data-i18n="btn.clear">Limpar</span>
                                 </button>
                             </div>
                         </div>
@@ -276,7 +276,7 @@ include 'includes/header.php';
                         <div class="text-center mt-5">
                             <button type="submit" name="atualizar_preferencias" id="btnSalvarPreferencias" class="btn btn-primary btn-lg" style="border-radius: 30px; padding: 12px 50px; font-weight: bold; box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);">
                                 <i class="fas fa-save me-2"></i>
-                                <span class="btn-text">Salvar Preferências</span>
+                                <span class="btn-text" data-i18n="btn.save_preferences">Salvar Preferências</span>
                                 <span class="spinner-border spinner-border-sm d-none ms-2" role="status" aria-hidden="true"></span>
                             </button>
                         </div>

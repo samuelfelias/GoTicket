@@ -203,7 +203,7 @@ $ingressos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         <div class="evento-detalhes">
             <div class="evento-header">
-                <h2 class="evento-titulo"><?php echo htmlspecialchars($evento['nome']); ?></h2>
+                <h2 class="evento-titulo" data-i18n="h.event_details"><?php echo htmlspecialchars($evento['nome']); ?></h2>
                 <span class="evento-status status-<?php echo strtolower($evento['status']); ?>">
                     <?php echo $evento['status']; ?>
                 </span>

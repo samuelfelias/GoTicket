@@ -140,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php include 'includes/header.php'; ?>
 
     <div class="container">
-        <h2>Transferir Ingresso</h2>
+        <h2 data-i18n="h.transfer_ticket">Transferir Ingresso</h2>
         
         <?php if (!empty($mensagem)): ?>
             <div class="alert alert-<?php echo $tipo_mensagem; ?>">
@@ -179,13 +179,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 <form method="post" action="">
                     <div class="form-group">
-                        <label for="email_destinatario">E-mail do Destinatário:</label>
+                        <label for="email_destinatario" data-i18n="label.email">E-mail:</label>
                         <input type="email" id="email_destinatario" name="email_destinatario" class="form-control" required>
                     </div>
                     
                     <div class="form-group" style="margin-top: 20px;">
-                        <button type="submit" class="btn btn-primary">Transferir Ingresso</button>
-                        <a href="meus_ingressos.php" class="btn btn-secondary">Cancelar</a>
+                        <button type="submit" class="btn btn-primary" data-i18n="btn.transfer">Transferir Ingresso</button>
+                        <a href="meus_ingressos.php" class="btn btn-secondary" data-i18n="btn.cancel">Cancelar</a>
                     </div>
                 </form>
             </div>
